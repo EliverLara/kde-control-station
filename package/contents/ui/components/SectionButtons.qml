@@ -13,6 +13,7 @@ Lib.Card {
     id: sectionButtons
     Layout.fillWidth: true
     Layout.fillHeight: true
+    Layout.maximumWidth : root.fullRepWidth / 2 + root.itemSpacing
     
     // NETWORK
     property var network: network

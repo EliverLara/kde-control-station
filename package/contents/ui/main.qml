@@ -28,6 +28,8 @@ Item {
     property int largeFontSize: 15 * scale
     property int mediumFontSize: 12 * scale
     property int smallFontSize: 7 * scale
+
+    property int itemSpacing: 5
     
     // Main Icon
     property string mainIconName: plasmoid.configuration.mainIconName

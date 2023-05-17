@@ -57,6 +57,7 @@ Item {
             Components.Battery {
                 id: mainBatteryWidget
             }
+            Components.SystemActions{}
         }
 
         RowLayout {

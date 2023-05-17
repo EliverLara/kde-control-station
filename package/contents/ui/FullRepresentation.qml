@@ -38,6 +38,14 @@ Item {
         spacing: root.itemSpacing
 
         RowLayout {
+            id: header
+
+            Layout.fillWidth: true
+
+            Components.UserAvatar{}
+        }
+
+        RowLayout {
             id: sectionA
 
             spacing: root.itemSpacing

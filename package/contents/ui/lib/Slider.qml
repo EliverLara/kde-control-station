@@ -78,12 +78,43 @@ Card {
             
             PlasmaComponents.Slider {
                 id: slider
-                Layout.fillHeight: true
                 Layout.fillWidth: true
                 from: sliderComp.from
                 to: sliderComp.to
                 stepSize: 2
                 snapMode: Slider.SnapAlways
+
+                background: Rectangle {
+                    x: slider.leftPadding
+                    y: slider.topPadding + slider.availableHeight / 2 - height / 2
+                    implicitWidth: 200
+                    implicitHeight: 17
+                    width: slider.availableWidth
+                    height: parent.height
+                    radius: height / 2
+                    color: root.isDarkTheme ? Qt.lighter(root.themeBgColor, 1.8) : Qt.darker(root.themeBgColor, 1.2)
+
+                    Rectangle {
+                        id: levelIndicator
+                        width: (value - from) / (to - from) * (slider.width - handle.width) + (handle.width)
+                        height: parent.height
+                        color:  root.themeHighlightColor
+                        radius: height / 2
+                        border.width: 0
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
+
+                handle: Rectangle {
+                    id: handle
+                    x: slider.leftPadding + slider.visualPosition * (slider.availableWidth - width)
+                    y: slider.topPadding + slider.availableHeight / 2 - height / 2
+                    implicitWidth: levelIndicator.height
+                    implicitHeight: levelIndicator.height
+                    radius: height / 2
+                    color: slider.pressed ? "#f0f0f0" : "#f6f6f6"
+                    border.color: "#bdbebf"
+                }
                 
                 onMoved: {
                     sliderComp.moved()

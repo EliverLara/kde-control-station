@@ -34,6 +34,7 @@ Item {
 
     // COlors variables
     property color themeBgColor: PlasmaCore.Theme.backgroundColor
+    property color themeHighlightColor: PlasmaCore.Theme.highlightColor
     property bool isDarkTheme: ColorType.isDark(themeBgColor)
     
     // Main Icon

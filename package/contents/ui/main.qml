@@ -14,8 +14,8 @@ Item {
     property bool playVolumeFeedback: plasmoid.configuration.playVolumeFeedback
 
     property var scale: plasmoid.configuration.scale * PlasmaCore.Units.devicePixelRatio / 100
-    property int fullRepWidth: 360 * scale
-    property int fullRepHeight: 360 * scale
+    property int fullRepWidth: 420 * scale
+    property int fullRepHeight: 380 * scale
     property int sectionHeight: 180 * scale
 
     property int largeSpacing: 12 * scale

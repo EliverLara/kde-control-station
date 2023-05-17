@@ -15,6 +15,9 @@ import "js/funcs.js" as Funcs
 
 Item {
     id: fullRep
+
+    property int remainingTime
+    property alias battery: mainBatteryWidget.battery
     
     // PROPERTIES
     Layout.preferredWidth: root.fullRepWidth
@@ -43,6 +46,9 @@ Item {
             Layout.fillWidth: true
 
             Components.UserAvatar{}
+            Components.Battery {
+                id: mainBatteryWidget
+            }
         }
 
         RowLayout {

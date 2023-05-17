@@ -64,10 +64,42 @@ Item {
         || Plasmoid.location === PlasmaCore.Types.RightEdge
         || Plasmoid.location === PlasmaCore.Types.BottomEdge
         || Plasmoid.location === PlasmaCore.Types.LeftEdge)
+
+    PlasmaCore.DataSource {
+        id: pmSource
+        engine: "powermanagement"
+        connectedSources: sources
+        function performOperation(what) {
+            var service = serviceForSource("PowerDevil")
+            var operation = service.operationDescription(what)
+            service.startOperationCall(operation)
+        }
+    }
+
+    property QtObject batteries: PlasmaCore.SortFilterModel {
+        id: batteries
+        filterRole: "Is Power Supply"
+        sortOrder: Qt.DescendingOrder
+        sourceModel: PlasmaCore.SortFilterModel {
+            sortRole: "Pretty Name"
+            sortOrder: Qt.AscendingOrder
+            sortCaseSensitivity: Qt.CaseInsensitive
+            sourceModel: PlasmaCore.DataModel {
+                dataSource: pmSource
+                sourceFilter: "Battery[0-9]+"
+            }
+        }
+    }
+
+    property var battery: pmSource.data["Battery"]
+    readonly property int remainingTime: Number(pmSource.data["Battery"]["Smoothed Remaining msec"])
     
     Plasmoid.switchHeight: fullRepWidth
     Plasmoid.switchWidth: fullRepWidth
     Plasmoid.preferredRepresentation: inPanel ? plasmoid.compactRepresentation : plasmoid.fullRepresentation
-    Plasmoid.fullRepresentation: FullRepresentation {}
+    Plasmoid.fullRepresentation: FullRepresentation {
+        battery: root.battery
+        remainingTime: root.remainingTime
+    }
     Plasmoid.compactRepresentation: CompactRepresentation {}
 }

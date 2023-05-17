@@ -30,6 +30,8 @@ Item {
     property int mediumFontSize: 12 * scale
     property int smallFontSize: 7 * scale
 
+    property int itemSpacing: 8
+
     // COlors variables
     property color themeBgColor: PlasmaCore.Theme.backgroundColor
     property bool isDarkTheme: ColorType.isDark(themeBgColor)

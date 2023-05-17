@@ -35,13 +35,13 @@ Item {
         id: wrapper
 
         anchors.fill: parent
-        spacing: 0
+        spacing: root.itemSpacing
 
         RowLayout {
             id: sectionA
 
-            spacing: 0
-            Layout.fillWidth: true
+            spacing: root.itemSpacing
+
             Layout.preferredHeight: root.sectionHeight
             Layout.maximumHeight: root.sectionHeight
             
@@ -50,11 +50,13 @@ Item {
             
             // Quick Toggle Buttons
             ColumnLayout {
-                spacing: 0
+                spacing: root.itemSpacing
+
+                Layout.maximumWidth : root.fullRepWidth / 2 + root.itemSpacing
                 
                 Components.DndButton{}
                 RowLayout {
-                    spacing: 0
+                    spacing: root.itemSpacing
                     
                     // Two blocks for custom commands
                     Components.CommandRun{
@@ -77,13 +79,11 @@ Item {
                 }
             }
         }
-        Item {
-            Layout.fillHeight: true
-        }
+
         ColumnLayout {
             id: sectionB
 
-            spacing: 0
+            spacing: root.itemSpacing
             Layout.fillWidth: true
 
             Components.Volume{}

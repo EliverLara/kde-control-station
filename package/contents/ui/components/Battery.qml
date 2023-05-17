@@ -42,4 +42,13 @@ Lib.Card {
             text: i18nc("Placeholder is battery percentage", "%1%", battery.battery.Percent)
         }
     }
+
+    MouseArea {
+        anchors.fill: parent
+        cursorShape: Qt.PointingHandCursor
+        hoverEnabled: false
+        onClicked: {
+            sectionBatteries.toggleSection()
+        }
+    }
 }

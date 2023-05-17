@@ -100,6 +100,7 @@ Item {
     Plasmoid.fullRepresentation: FullRepresentation {
         battery: root.battery
         remainingTime: root.remainingTime
+        batteries: root.batteries
     }
     Plasmoid.compactRepresentation: CompactRepresentation {}
 }

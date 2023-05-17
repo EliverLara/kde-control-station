@@ -18,6 +18,7 @@ Item {
 
     property int remainingTime
     property alias battery: mainBatteryWidget.battery
+    property QtObject batteries
     
     // PROPERTIES
     Layout.preferredWidth: root.fullRepWidth
@@ -31,6 +32,13 @@ Item {
     // Lists all available network connections
     Components.SectionNetworks{
         id: sectionNetworks
+    }
+
+    // Lists all available batteries
+    Components.SectionBatteries {
+        id: sectionBatteries
+        model: fullRep.batteries
+        remainingTime: fullRep.remainingTime
     }
 
     // Main wrapper

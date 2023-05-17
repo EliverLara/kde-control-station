@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.15
 import org.kde.plasma.plasmoid 2.0
 import org.kde.plasma.core 2.1 as PlasmaCore
+import "js/colorType.js" as ColorType
 
 Item {
     id: root
@@ -28,6 +29,10 @@ Item {
     property int largeFontSize: 15 * scale
     property int mediumFontSize: 12 * scale
     property int smallFontSize: 7 * scale
+
+    // COlors variables
+    property color themeBgColor: PlasmaCore.Theme.backgroundColor
+    property bool isDarkTheme: ColorType.isDark(themeBgColor)
     
     // Main Icon
     property string mainIconName: plasmoid.configuration.mainIconName

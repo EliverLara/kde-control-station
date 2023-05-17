@@ -7,22 +7,21 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 
 Rectangle {
-    color: "transparent"
-    property alias prefix: rect.prefix
+    color: root.enableTransparency ? 
+           Qt.rgba(root.themeBgColor.r, root.themeBgColor.g, root.themeBgColor.b, 0.4)
+           : root.themeBgColor
+
+    border.color: root.isDarkTheme ? Qt.lighter(root.themeBgColor, 2.0) : Qt.darker(root.themeBgColor, 1.3)
+
     property var margins: rect.margins
     default property alias content: dataContainer.data
+    radius: 12
 
-
-    PlasmaCore.FrameSvgItem {
+    Item {
         id: rect
-
-        imagePath: root.enableTransparency ? "translucent/dialogs/background" : "opaque/dialogs/background"
-        clip: true
         anchors.fill: parent
-        anchors.topMargin: rect.margins.top * root.scale
-        anchors.leftMargin: rect.margins.left * root.scale
-        anchors.rightMargin: rect.margins.right * root.scale
-        anchors.bottomMargin: rect.margins.bottom * root.scale
+        
+        anchors.margins: 0
 
         Item {
             id: dataContainer

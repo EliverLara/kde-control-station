@@ -1,7 +1,9 @@
-import QtQuick 2.0
+import QtQuick 2.15
 import QtQuick.Layouts 1.15
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
+//import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.plasma.plasma5support as Plasma5Support
+import org.kde.kirigami as Kirigami
 import "../lib" as Lib
 
 Lib.Card {
@@ -10,7 +12,7 @@ Lib.Card {
     Layout.fillWidth: true
     Layout.preferredHeight: root.sectionHeight/2
     
-    PlasmaCore.DataSource {
+    Plasma5Support.DataSource {
         id: musicSource
         engine: "mpris2"
         
@@ -107,7 +109,7 @@ Lib.Card {
             id: audioControls
             Layout.alignment: Qt.AlignRight
 
-            PlasmaCore.IconItem {
+            Kirigami.Icon {
                 Layout.preferredHeight: mediaNameWrapper.implicitHeight
                 Layout.preferredWidth: height
                 source: "media-skip-backward"
@@ -120,7 +122,7 @@ Lib.Card {
                 }
             }
 
-            PlasmaCore.IconItem {
+            Kirigami.Icon {
                 id: playIcon
                 Layout.preferredHeight: mediaNameWrapper.implicitHeight
                 Layout.preferredWidth: height
@@ -133,7 +135,7 @@ Lib.Card {
                     }
                 }
             }
-            PlasmaCore.IconItem {
+            Kirigami.Icon {
                 Layout.preferredHeight: mediaNameWrapper.implicitHeight
                 Layout.preferredWidth: height
                 source: "media-skip-forward"

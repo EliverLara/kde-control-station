@@ -1,9 +1,9 @@
-import QtQml 2.0
-import QtQuick 2.0
+import QtQml 2.15
+import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import "../lib" as Lib
 import "../js/funcs.js" as Funcs
-import org.kde.notificationmanager 1.0 as NotificationManager
+import org.kde.notificationmanager as NotificationManager
 
 Lib.CardButton {
     visible: root.showDnd

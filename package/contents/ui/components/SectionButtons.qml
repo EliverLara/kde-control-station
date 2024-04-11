@@ -4,7 +4,9 @@ import QtQuick.Layouts 1.15
 
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.bluezqt 1.0 as BluezQt
-import org.kde.kquickcontrolsaddons 2.0
+import org.kde.kirigami as Kirigami
+import org.kde.kcmutils as KCM
+
 
 import "../lib" as Lib
 import "../js/funcs.js" as Funcs
@@ -35,9 +37,9 @@ Lib.Card {
             title: i18n("Network")
             subtitle: network.networkStatus
             source: network.activeConnectionIcon
-            sourceColor: network.networkStatus === "Connected" ? PlasmaCore.Theme.highlightColor : PlasmaCore.Theme.disabledTextColor
+            sourceColor: network.networkStatus === "Connected" ? Kirigami.Theme.highlightColor : Kirigami.Theme.disabledTextColor
             onClicked: {
-                sectionNetworks.toggleNetworkSection()
+                sectionNetworks.toggleSection()
             }
         }
         
@@ -55,7 +57,7 @@ Lib.Card {
             subtitle: i18n("System Settings")
             source: "settings-configure"
             onClicked: {
-                KCMShell.openSystemSettings("")
+                KCM.KCMLauncher.openSystemSettings("")
             }
         }
     }

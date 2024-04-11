@@ -1,4 +1,5 @@
 {
+    "KPackageStructure": "Plasma/Applet",
     "KPlugin": {
         "Authors": [
             {
@@ -21,6 +22,11 @@
     },
     "X-Plasma-API": "declarativeappletscript",
     "X-Plasma-MainScript": "ui/main.qml",
-    "X-Plasma-Provides": "org.kde.plasma.multimediacontrols,org.kde.plasma.powermanagement,org.kde.plasma.notifications",
-    "X-Plasma-NotificationArea": "true"
+    "X-Plasma-Provides": [
+        "org.kde.plasma.multimediacontrols",
+        "org.kde.plasma.powermanagement",
+        "org.kde.plasma.notifications"
+    ],
+    "X-Plasma-NotificationArea": "true",
+    "X-Plasma-API-Minimum-Version": "6.0"
 }

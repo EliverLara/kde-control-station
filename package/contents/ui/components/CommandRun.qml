@@ -1,8 +1,10 @@
-import QtQml 2.0
-import QtQuick 2.0
+import QtQml 2.15
+import QtQuick 2.15
 import QtQuick.Layouts 1.15
 
-import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.plasma5support as Plasma5Support
+import org.kde.kirigami as Kirigami
 
 import "../lib" as Lib
 import "../js/funcs.js" as Funcs
@@ -17,12 +19,12 @@ Lib.CardButton {
         executable.connectSource(cmd)
     }
     
-    PlasmaCore.IconItem {
+    Kirigami.Icon {
         anchors.fill: parent
         source: icon
     }
     
-    PlasmaCore.DataSource {
+    Plasma5Support.DataSource {
         id: executable
         engine: "executable"
         connectedSources: []

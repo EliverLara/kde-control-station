@@ -1,11 +1,12 @@
-import QtQuick 2.0
+import QtQuick 2.15
 import QtQuick.Layouts 1.15
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents2
-import org.kde.plasma.components 3.0 as PlasmaComponents
-import org.kde.kirigami 2.13 as Kirigami
-import org.kde.kquickcontrolsaddons 2.0 as KQuickAddons
-import org.kde.kcoreaddons 1.0 as KCoreAddons
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.components as PlasmaComponents2
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.components 1.0 as KirigamiComponents
+import org.kde.kcmutils as KCM
+import org.kde.coreaddons 1.0 as KCoreAddons
 import "../lib" as Lib
 
 Lib.Card {
@@ -25,12 +26,12 @@ Lib.Card {
         clip: true
         
         Rectangle {
-            width: (35 * PlasmaCore.Units.devicePixelRatio)  
+            width: (35 * 1)  
             height: width
             color: "transparent"
             radius: width / 2
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHLeft
-            Kirigami.Avatar {
+            KirigamiComponents.AvatarButton {
                 source: kuser.faceIconUrl
                 anchors {
                     fill: parent
@@ -38,17 +39,35 @@ Lib.Card {
             }
         }
 
-        PlasmaComponents.Label {
-            id: greeting
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.margins: root.smallSpacing
-            text: 'Hi, ' + kuser.fullName
-            font.pixelSize:  root.largeFontSize
-            font.weight: Font.Bold
-            horizontalAlignment:  Qt.AlignLeft
-            verticalAlignment: Qt.AlignVCenter
-            wrapMode: Text.WordWrap
+        ColumnLayout {
+
+
+            PlasmaComponents.Label {
+                id: userName
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.margins: root.smallSpacing
+                text: kuser.loginName // i18n("%1@%2", kuser.loginName, kuser.host)
+                font.pixelSize:  root.largeFontSize + 2
+                font.weight: Font.Bold
+                horizontalAlignment:  Qt.AlignLeft
+                verticalAlignment: Qt.AlignVCenter
+                wrapMode: Text.WordWrap
+            }
+
+            PlasmaComponents.Label {
+                id: userHost
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.margins: root.smallSpacing
+                text: i18n("%1@%2", kuser.loginName, kuser.host)
+                font.pixelSize:  root.largeFontSize
+               // font.weight: Font.Bold
+                horizontalAlignment:  Qt.AlignLeft
+                verticalAlignment: Qt.AlignVCenter
+                wrapMode: Text.WordWrap
+            }
+
         }
     }
 
@@ -57,7 +76,7 @@ Lib.Card {
         cursorShape: Qt.PointingHandCursor
         hoverEnabled: false
         onClicked: {
-            KQuickAddons.KCMShell.openSystemSettings("kcm_users")
+            KCM.KCMLauncher.openSystemSettings("kcm_users")
             root.toggle()
         }
     }

@@ -1,20 +1,23 @@
-import QtQuick 2.0
+import QtQuick 2.15
 import QtQuick.Controls 2.15
-import org.kde.plasma.plasmoid 2.0
-import org.kde.plasma.core 2.1 as PlasmaCore
+import org.kde.plasma.plasmoid
+import org.kde.plasma.core as PlasmaCore
 import "js/colorType.js" as ColorType
+import org.kde.plasma.plasma5support as Plasma5Support
+import org.kde.kirigami as Kirigami
+import org.kde.kitemmodels as KItemModels
 
-Item {
+PlasmoidItem {
     id: root
     
     clip: true
 
     // PROPERTIES
-    property bool enableTransparency: plasmoid.configuration.transparency
-    property var animationDuration: PlasmaCore.Units.veryShortDuration
-    property bool playVolumeFeedback: plasmoid.configuration.playVolumeFeedback
+    property bool enableTransparency: Plasmoid.configuration.transparency
+    property var animationDuration: Kirigami.Units.veryShortDuration
+    property bool playVolumeFeedback: Plasmoid.configuration.playVolumeFeedback
 
-    property var scale: plasmoid.configuration.scale * PlasmaCore.Units.devicePixelRatio / 100
+    property var scale: Plasmoid.configuration.scale * 1 / 100
     property int fullRepWidth: 420 * scale
     property int fullRepHeight: 380 * scale
     property int sectionHeight: 180 * scale
@@ -33,39 +36,39 @@ Item {
     property int itemSpacing: 8
 
     // COlors variables
-    property color themeBgColor: PlasmaCore.Theme.backgroundColor
-    property color themeHighlightColor: PlasmaCore.Theme.highlightColor
+    property color themeBgColor: Kirigami.Theme.backgroundColor
+    property color themeHighlightColor: Kirigami.Theme.highlightColor
     property bool isDarkTheme: ColorType.isDark(themeBgColor)
     
     // Main Icon
-    property string mainIconName: plasmoid.configuration.mainIconName
-    property string mainIconHeight: plasmoid.configuration.mainIconHeight
+    property string mainIconName: Plasmoid.configuration.mainIconName
+    property string mainIconHeight: Plasmoid.configuration.mainIconHeight
     
     // Components
-    property bool showKDEConnect: plasmoid.configuration.showKDEConnect
-    property bool showNightColor: plasmoid.configuration.showNightColor
-    property bool showColorSwitcher: plasmoid.configuration.showColorSwitcher
-    property bool showDnd: plasmoid.configuration.showDnd
-    property bool showVolume: plasmoid.configuration.showVolume
-    property bool showBrightness: plasmoid.configuration.showBrightness
-    property bool showMediaPlayer: plasmoid.configuration.showMediaPlayer
-    property bool showCmd1: plasmoid.configuration.showCmd1
-    property bool showCmd2: plasmoid.configuration.showCmd2
-    property bool showPercentage: plasmoid.configuration.showPercentage
+    property bool showKDEConnect: Plasmoid.configuration.showKDEConnect
+    property bool showNightColor: Plasmoid.configuration.showNightColor
+    property bool showColorSwitcher: Plasmoid.configuration.showColorSwitcher
+    property bool showDnd: Plasmoid.configuration.showDnd
+    property bool showVolume: Plasmoid.configuration.showVolume
+    property bool showBrightness: Plasmoid.configuration.showBrightness
+    property bool showMediaPlayer: Plasmoid.configuration.showMediaPlayer
+    property bool showCmd1: Plasmoid.configuration.showCmd1
+    property bool showCmd2: Plasmoid.configuration.showCmd2
+    property bool showPercentage: Plasmoid.configuration.showPercentage
     
-    property string cmdRun1: plasmoid.configuration.cmdRun1
-    property string cmdTitle1: plasmoid.configuration.cmdTitle1
-    property string cmdIcon1: plasmoid.configuration.cmdIcon1
-    property string cmdRun2: plasmoid.configuration.cmdRun2
-    property string cmdTitle2: plasmoid.configuration.cmdTitle2
-    property string cmdIcon2: plasmoid.configuration.cmdIcon2
+    property string cmdRun1: Plasmoid.configuration.cmdRun1
+    property string cmdTitle1: Plasmoid.configuration.cmdTitle1
+    property string cmdIcon1: Plasmoid.configuration.cmdIcon1
+    property string cmdRun2: Plasmoid.configuration.cmdRun2
+    property string cmdTitle2: Plasmoid.configuration.cmdTitle2
+    property string cmdIcon2: Plasmoid.configuration.cmdIcon2
 
     readonly property bool inPanel: (Plasmoid.location === PlasmaCore.Types.TopEdge
         || Plasmoid.location === PlasmaCore.Types.RightEdge
         || Plasmoid.location === PlasmaCore.Types.BottomEdge
         || Plasmoid.location === PlasmaCore.Types.LeftEdge)
 
-    PlasmaCore.DataSource {
+    Plasma5Support.DataSource {
         id: pmSource
         engine: "powermanagement"
         connectedSources: sources
@@ -76,15 +79,15 @@ Item {
         }
     }
 
-    property QtObject batteries: PlasmaCore.SortFilterModel {
+    property QtObject batteries: KItemModels.KSortFilterProxyModel {
         id: batteries
-        filterRole: "Is Power Supply"
+        filterRoleName: "Is Power Supply"
         sortOrder: Qt.DescendingOrder
-        sourceModel: PlasmaCore.SortFilterModel {
-            sortRole: "Pretty Name"
+        sourceModel: KItemModels.KSortFilterProxyModel {
+            sortRoleName: "Pretty Name"
             sortOrder: Qt.AscendingOrder
             sortCaseSensitivity: Qt.CaseInsensitive
-            sourceModel: PlasmaCore.DataModel {
+            sourceModel: Plasma5Support.DataModel {
                 dataSource: pmSource
                 sourceFilter: "Battery[0-9]+"
             }
@@ -94,13 +97,13 @@ Item {
     property var battery: pmSource.data["Battery"]
     readonly property int remainingTime: Number(pmSource.data["Battery"]["Smoothed Remaining msec"])
     
-    Plasmoid.switchHeight: fullRepWidth
-    Plasmoid.switchWidth: fullRepWidth
-    Plasmoid.preferredRepresentation: inPanel ? plasmoid.compactRepresentation : plasmoid.fullRepresentation
-    Plasmoid.fullRepresentation: FullRepresentation {
+    switchHeight: fullRepWidth
+    switchWidth: fullRepWidth
+    preferredRepresentation: inPanel ? Plasmoid.compactRepresentation : Plasmoid.fullRepresentation
+    fullRepresentation: FullRepresentation {
         battery: root.battery
         remainingTime: root.remainingTime
         batteries: root.batteries
     }
-    Plasmoid.compactRepresentation: CompactRepresentation {}
+    compactRepresentation: CompactRepresentation {}
 }

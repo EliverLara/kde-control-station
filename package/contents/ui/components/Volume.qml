@@ -1,9 +1,9 @@
-import QtQml 2.0
-import QtQuick 2.0
+import QtQml 2.15
+import QtQuick 2.15
 import QtQuick.Layouts 1.15
 
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.private.volume 0.1 as Vol
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.private.volume as Vol
 
 import "../lib" as Lib
 import "../js/funcs.js" as Funcs

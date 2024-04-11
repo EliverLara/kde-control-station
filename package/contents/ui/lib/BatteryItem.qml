@@ -1,18 +1,18 @@
-import QtQuick 2.0
+import QtQuick 2.15
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.15
-import QtGraphicalEffects 1.15
+//import QtGraphicalEffects 1.15
 
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 3.0 as PlasmaComponents
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.components as PlasmaComponents
 
-import org.kde.plasma.workspace.components 2.0
-import org.kde.kcoreaddons 1.0 as KCoreAddons
+import org.kde.plasma.workspace.components
+import org.kde.coreaddons as KCoreAddons
+import org.kde.ksvg as KSvg
 
 
 
-
-PlasmaCore.FrameSvgItem {
+KSvg.FrameSvgItem {
     id: batteryItem
 
     imagePath: "widgets/viewitem"
@@ -45,8 +45,8 @@ PlasmaCore.FrameSvgItem {
             id: batteryIcon
 
             Layout.alignment: Qt.AlignTop
-            Layout.preferredWidth: PlasmaCore.Units.iconSizes.medium
-            Layout.preferredHeight: PlasmaCore.Units.iconSizes.medium
+            Layout.preferredWidth: Kirigami.Units.iconSizes.medium
+            Layout.preferredHeight: Kirigami.Units.iconSizes.medium
 
             batteryType: batteryItem.battery.Type
             percent: batteryItem.battery.Percent
@@ -122,7 +122,7 @@ PlasmaCore.FrameSvgItem {
                     // fillWidth is true, so using internal alignment
                     horizontalAlignment: Text.AlignLeft
                     Layout.fillWidth: true
-                    font: PlasmaCore.Theme.smallestFont
+                    font: Kirigami.Theme.smallestFont
                     wrapMode: Text.WordWrap
                     enabled: false
                 }
@@ -130,7 +130,7 @@ PlasmaCore.FrameSvgItem {
                     // fillWidth is false, so using external (grid-cell-internal) alignment
                     Layout.alignment: Qt.AlignRight
                     Layout.fillWidth: false
-                    font: PlasmaCore.Theme.smallestFont
+                    font: Kirigami.Theme.smallestFont
                     enabled: false
                 }
 
@@ -141,8 +141,8 @@ PlasmaCore.FrameSvgItem {
                     text: batteryItem.isBroken && typeof batteryItem.battery.Capacity !== "undefined"
                         ? i18n("This battery's health is at only %1% and it should be replaced. Contact the manufacturer.", batteryItem.battery.Capacity)
                         : ""
-                    font: PlasmaCore.Theme.smallestFont
-                    color: PlasmaCore.Theme.neutralTextColor
+                    font: Kirigami.Theme.smallestFont
+                    color: Kirigami.Theme.neutralTextColor
                     visible: batteryItem.isBroken
                     wrapMode: Text.WordWrap
                 }

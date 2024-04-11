@@ -1,6 +1,6 @@
-import QtQuick 2.0
+import QtQuick 2.15
 import "../lib" as Lib
-import org.kde.plasma.networkmanagement 0.2 as PlasmaNM
+import org.kde.plasma.networkmanagement as PlasmaNM
 
 Lib.LongButton {
     title: Name

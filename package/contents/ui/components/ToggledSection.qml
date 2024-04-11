@@ -1,10 +1,11 @@
-import QtQuick 2.5
+import QtQuick 2.15
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.15
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
-import org.kde.plasma.components 3.0 as PlasmaComponents3
-import org.kde.plasma.networkmanagement 0.2 as PlasmaNM
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.plasma.components as PlasmaComponents3
+import org.kde.plasma.networkmanagement as PlasmaNM
+import org.kde.ksvg as KSvg
 import "../lib" as Lib
 
 Lib.Card {
@@ -14,7 +15,9 @@ Lib.Card {
 
     property alias delegate: listview.delegate
 
-    property string text
+    property string sectionTitle
+
+ //   property alias extraHeaderItems: listview.header.headerActions.children
 
     function toggleSection() {
         if (!toggled.visible) {
@@ -50,26 +53,31 @@ Lib.Card {
                 spacing: root.smallSpacing
 
                 RowLayout {
+                    id:headerActions
                     height: implicitHeight + root.smallSpacing
 
-                    PlasmaComponents.ToolButton {
+                    ToolButton {
                         Layout.preferredHeight: root.largeFontSize * 2.5
-                        iconSource: "arrow-left"
-                        onClicked: {
-                            toggled.toggleSection();
+                        icon.name: "arrow-left"
+                        MouseArea {
+                            
+                            anchors.fill: parent
+                            
+                            onClicked: {
+                                toggled.toggleSection();
+                            }
                         }
                     }
 
                     PlasmaComponents.Label {
-                        
-                        text: toggled.text
+                        text: toggled.sectionTitle
                         font.pixelSize: root.largeFontSize * 1.2
                         Layout.fillWidth: true
                     }
 
                 }
 
-                PlasmaCore.SvgItem {
+                KSvg.SvgItem {
                     id: separatorLine
 
                     z: 4
@@ -77,7 +85,7 @@ Lib.Card {
                     Layout.fillWidth: true
                     Layout.preferredHeight: root.scale
 
-                    svg: PlasmaCore.Svg {
+                    svg: KSvg.Svg {
                         imagePath: "widgets/line"
                     }
 

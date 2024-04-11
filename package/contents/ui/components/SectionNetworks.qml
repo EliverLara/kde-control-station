@@ -1,11 +1,103 @@
-import QtQuick 2.5
+import QtQuick 2.15
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.15
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
-import org.kde.plasma.components 3.0 as PlasmaComponents3
-import org.kde.plasma.networkmanagement 0.2 as PlasmaNM
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.plasma.components as PlasmaComponents3
+import org.kde.plasma.networkmanagement as PlasmaNM
+import org.kde.ksvg as KSvg
+import org.kde.kirigami as Kirigami
 import "../lib" as Lib
+
+
+// ToggledSection {
+//     id: sectionNetworks
+
+//     // NETWORK
+//     property var network: network
+
+//     Network {
+//         id: network
+//     }
+
+//     model: network.appletProxyModel
+
+//     sectionTitle: i18n("Network Connections")
+
+//     extraHeaderItems: [
+
+//         PlasmaComponents3.CheckBox {
+//             id: wifiSwitchButton
+
+//             readonly property bool administrativelyEnabled: network.availableDevices.wirelessDeviceAvailable && network.enabledConnections.wirelessHwEnabled
+
+//             Layout.rightMargin: root.smallSpacing
+//             checked: administrativelyEnabled && network.enabledConnections.wirelessEnabled
+//             enabled: administrativelyEnabled
+//             icon.name: administrativelyEnabled && network.enabledConnections.wirelessEnabled ? "network-wireless-on" : "network-wireless-off"
+//             visible: network.availableDevices.wirelessDeviceAvailable
+//             onToggled: network.handler.enableWireless(checked)
+
+//             PlasmaComponents3.ToolTip {
+//                 text: wifiSwitchButton.checked ? i18n("Disable Wi-Fi") : i18n("Enable Wi-Fi")
+//             }
+
+//             PlasmaComponents3.BusyIndicator {
+//                 parent: wifiSwitchButton
+//                 running: network.handler.scanning || timer.running
+
+//                 anchors {
+//                     fill: wifiSwitchButton.contentItem
+//                     leftMargin: wifiSwitchButton.indicator.width + wifiSwitchButton.spacing
+//                 }
+
+//                 Timer {
+//                     id: timer
+
+//                     interval: Kirigami.Units.humanMoment
+//                 }
+
+//                 Connections {
+//                     function onScanningChanged() {
+//                         if (network.handler.scanning)
+//                             timer.restart();
+
+//                     }
+
+//                     target: network.handler
+//                 }
+
+//             }
+
+//         },
+
+//         // Airplane mode section
+//         PlasmaComponents3.CheckBox {
+//             id: airPlaneModeSwitchButton
+
+//             property bool initialized: false
+
+//             checked: PlasmaNM.Configuration.airplaneModeEnabled
+//             icon.name: PlasmaNM.Configuration.airplaneModeEnabled ? "network-flightmode-on" : "network-flightmode-off"
+//             visible: network.availableDevices.modemDeviceAvailable || network.availableDevices.wirelessDeviceAvailable
+//             onToggled: {
+//                 network.handler.enableAirplaneMode(checked);
+//                 PlasmaNM.Configuration.airplaneModeEnabled = checked;
+//             }
+
+//             PlasmaComponents3.ToolTip {
+//                 text: airPlaneModeSwitchButton.checked ? i18n("Disable airplane mode") : i18n("Enable airplane mode")
+//             }
+
+//         }
+
+//     ]
+
+//     delegate: ConnectionItem {
+//         width: parent.width
+//         height: root.buttonHeight
+//     }
+// }
 
 Lib.Card {
     id: sectionNetworks
@@ -56,7 +148,7 @@ Lib.Card {
 
                     PlasmaComponents.ToolButton {
                         Layout.preferredHeight: root.largeFontSize * 2.5
-                        iconSource: "arrow-left"
+                        icon.name: "arrow-left"
                         onClicked: {
                             sectionNetworks.toggleNetworkSection();
                         }
@@ -96,7 +188,7 @@ Lib.Card {
                             Timer {
                                 id: timer
 
-                                interval: PlasmaCore.Units.humanMoment
+                                interval: Kirigami.Units.humanMoment
                             }
 
                             Connections {
@@ -135,7 +227,7 @@ Lib.Card {
 
                 }
 
-                PlasmaCore.SvgItem {
+                KSvg.SvgItem {
                     id: separatorLine
 
                     z: 4
@@ -143,7 +235,7 @@ Lib.Card {
                     Layout.fillWidth: true
                     Layout.preferredHeight: root.scale
 
-                    svg: PlasmaCore.Svg {
+                    svg: KSvg.Svg {
                         imagePath: "widgets/line"
                     }
 

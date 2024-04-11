@@ -1,11 +1,12 @@
-import QtQuick 2.0
+import QtQuick 2.15
 import QtQuick.Layouts 1.15
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents2
-import org.kde.plasma.components 3.0 as PlasmaComponents
-import org.kde.kquickcontrolsaddons 2.0 as KQuickAddons
-import org.kde.kcoreaddons 1.0 as KCoreAddons
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.components as PlasmaComponents2
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.kquickcontrolsaddons as KQuickAddons
+import org.kde.coreaddons as KCoreAddons
 import org.kde.plasma.workspace.components 2.0
+import org.kde.kirigami as Kirigami
 
 import "../lib" as Lib
 
@@ -27,8 +28,8 @@ Lib.Card {
             id: batteryIcon
 
             Layout.alignment: Qt.AlignCenterLeft
-            Layout.preferredWidth: PlasmaCore.Units.iconSizes.medium
-            Layout.preferredHeight: PlasmaCore.Units.iconSizes.medium
+            Layout.preferredWidth: Kirigami.Units.iconSizes.medium
+            Layout.preferredHeight: Kirigami.Units.iconSizes.medium
 
             percent: battery.battery.Percent
             hasBattery: battery.battery["Has Battery"]

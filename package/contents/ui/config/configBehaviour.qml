@@ -7,8 +7,9 @@ import org.kde.kirigami 2.15 as Kirigami
 import org.kde.kquickcontrolsaddons 2.0 as KQuickAddons
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.extras 2.0 as PlasmaExtras
+import org.kde.kcmutils as KCM
 
-ColumnLayout {
+KCM.SimpleKCM {
     property alias cfg_playVolumeFeedback: playVolumeFeedback.checked 
 
 

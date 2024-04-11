@@ -1,12 +1,14 @@
-import QtQuick 2.0
+import QtQuick 2.15
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.15
-import QtGraphicalEffects 1.15
+//import QtGraphicalEffects 1.15
 
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.ksvg as KSvg
 
-PlasmaCore.FrameSvgItem {
+
+KSvg.FrameSvgItem {
     id: button
 
     imagePath: "widgets/viewitem"

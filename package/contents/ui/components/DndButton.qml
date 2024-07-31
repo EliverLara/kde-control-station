@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.15
 import "../lib" as Lib
 import "../js/funcs.js" as Funcs
 import org.kde.notificationmanager as NotificationManager
+import org.kde.kirigami as Kirigami
 
 Lib.CardButton {
     visible: root.showDnd
@@ -39,8 +40,10 @@ Lib.CardButton {
     function updateIcon() {
         if (Funcs.checkInhibition()) {
             dndIcon.source = "notifications-disabled"
+            dndIcon.sourceColor =  root.themeHighlightColor
         } else {
             dndIcon.source = "notifications"
+            dndIcon.sourceColor = Kirigami.Theme.disabledTextColor
         }
     }
     

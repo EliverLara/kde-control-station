@@ -17,15 +17,16 @@ Lib.CardButton {
     visible: root.showColorSwitcher
     Layout.fillHeight: true
     Layout.fillWidth: true
-    title: i18n(Plasmoid.configuration.isDarkTheme ? "Light Theme" : "Dark Theme")
-    Kirigami.Icon {
+    title: i18n("Dark Theme")
+    Lib.Icon {
         anchors.fill: parent
-        source: Plasmoid.configuration.isDarkTheme ? "brightness-high" : "brightness-low"
+        source: root.isDarkTheme ? "brightness-high" : "brightness-low"
+        sourceColor: root.isDarkTheme ? root.themeHighlightColor : Kirigami.Theme.disabledTextColor
     }
 
     onClicked: {
         executable.swapColorScheme();
-        Plasmoid.configuration.isDarkTheme = !Plasmoid.configuration.isDarkTheme
+        root.isDarkTheme = !root.isDarkTheme
     }
 
     Plasma5Support.DataSource {
@@ -41,7 +42,7 @@ Lib.CardButton {
         }
 
         function swapColorScheme() {
-            var colorSchemeName = Plasmoid.configuration.isDarkTheme ? Plasmoid.configuration.lightTheme : Plasmoid.configuration.darkTheme
+            var colorSchemeName = root.isDarkTheme ? Plasmoid.configuration.lightTheme : Plasmoid.configuration.darkTheme
             exec("plasma-apply-colorscheme " + colorSchemeName)
         }
     }

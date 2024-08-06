@@ -4,6 +4,10 @@ import QtQuick.Layouts 1.15
 import org.kde.plasma.components as PlasmaComponents
 import org.kde.plasma.plasma5support as Plasma5Support
 import org.kde.kirigami as Kirigami
+
+import org.kde.plasma.private.mediacontroller 1.0
+import org.kde.plasma.private.mpris as Mpris
+
 import "../lib" as Lib
 
 Lib.Card {
@@ -11,68 +15,55 @@ Lib.Card {
     visible: root.showMediaPlayer
     Layout.fillWidth: true
     Layout.preferredHeight: root.sectionHeight/2
-    
-    Plasma5Support.DataSource {
-        id: musicSource
-        engine: "mpris2"
-        
-        onDataChanged: {
-            connectedSources = ["@multiplex"]
-            var audioData = data["@multiplex"]
-            var playing = audioData["PlaybackStatus"] === "Playing"
-            
-            
-            // show if and only if the audio source exists and the audio is currently playing
-            if (audioData && playing) {
-                
-                var audioMetadata = audioData["Metadata"]
-                var title = audioMetadata["xesam:title"]
-                var artist = audioMetadata["xesam:artist"]
-                var thumb = audioMetadata["mpris:artUrl"]   
-                
-                audioTitle.text = title ? title : i18n("Unknown Media")
-                audioThumb.source = thumb ? thumb : "../../assets/music.png"
-                
-                audioArtist.visible = true
-                audioThumb.visible = true
-                audioControls.visible = true
-                audioTitle.horizontalAlignment = Qt.AlignLeft
-                playIcon.source = "media-playback-pause"
-                try {
-                    audioArtist.text = artist.join(", ")
-                } catch(err) {
-                    audioArtist.text = artist ? artist : i18n("Unknown Artist")
-                } 
-            } else {
-                playIcon.source = "media-playback-start"
-            }
-        }
-        onSourcesChanged: {
-            dataChanged()
-        }
-        onSourceRemoved: {
-            audioArtist.visible = false
-            audioThumb.visible = false
-            audioControls.visible = false
-            audioTitle.horizontalAlignment = Qt.AlignHCenter
-            audioTitle.text = i18n("No Media Playing")
-            dataChanged()
-        }
-        Component.onCompleted: {
-            audioArtist.visible = false
-            audioThumb.visible = false
-            audioControls.visible = false
-            audioTitle.horizontalAlignment = Qt.AlignHCenter
-            audioTitle.text = i18n("No Media Playing")
-            dataChanged()
-        }
+
+    // BEGIN model properties
+    readonly property string track: mpris2Model.currentPlayer?.track ?? ""
+    readonly property string artist: mpris2Model.currentPlayer?.artist ?? ""
+    readonly property string album: mpris2Model.currentPlayer?.album ?? ""
+    readonly property string albumArt: mpris2Model.currentPlayer?.artUrl ?? ""
+    readonly property string identity: mpris2Model.currentPlayer?.identity ?? ""
+    readonly property bool canControl: mpris2Model.currentPlayer?.canControl ?? false
+    readonly property bool canGoPrevious: mpris2Model.currentPlayer?.canGoPrevious ?? false
+    readonly property bool canGoNext: mpris2Model.currentPlayer?.canGoNext ?? false
+    readonly property bool canPlay: mpris2Model.currentPlayer?.canPlay ?? false
+    readonly property bool canPause: mpris2Model.currentPlayer?.canPause ?? false
+    readonly property bool canStop: mpris2Model.currentPlayer?.canStop ?? false
+    readonly property int playbackStatus: mpris2Model.currentPlayer?.playbackStatus ?? 0
+    readonly property bool isPlaying: playbackStatus === Mpris.PlaybackStatus.Playing
+    readonly property bool canRaise: mpris2Model.currentPlayer?.canRaise ?? false
+    readonly property bool canQuit: mpris2Model.currentPlayer?.canQuit ?? false
+    readonly property int shuffle: mpris2Model.currentPlayer?.shuffle ?? 0
+    readonly property int loopStatus: mpris2Model.currentPlayer?.loopStatus ?? 0
+
+    Mpris.Mpris2Model {
+        id: mpris2Model
     }
 
-    function action(src, op) {
-        var service = musicSource.serviceForSource(src);
-        var operation = service.operationDescription(op);
-        return service.startOperationCall(operation);
+    function previous() {
+        mpris2Model.currentPlayer.Previous();
     }
+    function next() {
+        mpris2Model.currentPlayer.Next();
+    }
+    function play() {
+        mpris2Model.currentPlayer.Play();
+    }
+    function pause() {
+        mpris2Model.currentPlayer.Pause();
+    }
+    function togglePlaying() {
+        mpris2Model.currentPlayer.PlayPause();
+    }
+    function stop() {
+        mpris2Model.currentPlayer.Stop();
+    }
+    function quit() {
+        mpris2Model.currentPlayer.Quit();
+    }
+    function raise() {
+        mpris2Model.currentPlayer.Raise();
+    }
+
 
     RowLayout {
         anchors.fill: parent
@@ -81,6 +72,7 @@ Lib.Card {
         Image {
             id: audioThumb
             fillMode: Image.PreserveAspectCrop
+            source: mediaPlayer.albumArt || "../../assets/music.png"
             Layout.fillHeight: true
             Layout.preferredWidth: height
         }
@@ -96,55 +88,58 @@ Lib.Card {
                 font.capitalization: Font.Capitalize
                 font.weight: Font.Bold
                 font.pixelSize: root.largeFontSize
-                horizontalAlignment: Text.AlignHCenter
+                //horizontalAlignment: Text.AlignHCenter
                 elide: Text.ElideRight
+                text: track ? track : (mediaPlayer.playbackStatus > Mpris.PlaybackStatus.Stopped) ? i18n("No title") : i18n("No media playing")
             }
             PlasmaComponents.Label {
                 id: audioArtist
                 Layout.fillWidth: true
                 font.pixelSize: root.mediumFontSize
+               // horizontalAlignment: Text.AlignHCenter
+                text: artist
             }
         }
         RowLayout {
             id: audioControls
             Layout.alignment: Qt.AlignRight
 
-            Kirigami.Icon {
+
+            PlasmaComponents.ToolButton {
+                id: previousButton
                 Layout.preferredHeight: mediaNameWrapper.implicitHeight
                 Layout.preferredWidth: height
-                source: "media-skip-backward"
-                
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        mediaPlayer.action(musicSource.connectedSources, "Previous")
-                    }
+                icon.name: "media-skip-backward"
+                enabled: mediaPlayer.canGoPrevious
+                onClicked: {
+                    //seekSlider.value = 0    // Let the media start from beginning. Bug 362473
+                    mediaPlayer.previous()
                 }
             }
 
-            Kirigami.Icon {
-                id: playIcon
+            PlasmaComponents.ToolButton { // Pause/Play
+                id: playPauseButton
+
                 Layout.preferredHeight: mediaNameWrapper.implicitHeight
                 Layout.preferredWidth: height
-                source: "media-playback-start"
-                
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        mediaPlayer.action(musicSource.connectedSources, "PlayPause")
-                    }
-                }
+
+                Layout.alignment: Qt.AlignVCenter
+                enabled: mediaPlayer.isPlaying ? mediaPlayer.canPause : mediaPlayer.canPlay
+                icon.name: mediaPlayer.isPlaying ? "media-playback-pause" : "media-playback-start"
+
+                onClicked: mediaPlayer.togglePlaying()
             }
-            Kirigami.Icon {
+
+
+            PlasmaComponents.ToolButton {
+                id: nextButton
                 Layout.preferredHeight: mediaNameWrapper.implicitHeight
                 Layout.preferredWidth: height
-                source: "media-skip-forward"
-                
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        mediaPlayer.action(musicSource.connectedSources, "Next")
-                    }
+                icon.name: "media-skip-forward"
+                enabled: mediaPlayer.canGoNext
+                onClicked: {
+                    //seekSlider.value = 0    // Let the media start from beginning. Bug 362473
+                    mediaPlayer.next()
                 }
             }
         }

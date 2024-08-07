@@ -21,7 +21,7 @@ Lib.Slider {
     }
     
     // Audio source
-    property var sink: paSinkModel.preferredSink
+    property var sink: Vol.PreferredDevice.sink
     readonly property bool sinkAvailable: sink && !(sink && sink.name == "auto_null")
     readonly property Vol.SinkModel paSinkModel: Vol.SinkModel {
         id: paSinkModel

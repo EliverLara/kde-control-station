@@ -12,7 +12,7 @@ Card {
 
     GridLayout {
         anchors.fill: parent
-        property bool small: width < root.fullRepWidth/4
+        property bool small: width < root.fullRepWidth/3
         anchors.margins: small ? root.smallSpacing : root.largeSpacing
         rows: small ? 2 : 1
         columns: small ? 1 : 2
@@ -21,7 +21,7 @@ Card {
 
         Item {
             id: icon
-            Layout.preferredHeight: parent.small ? parent.height/1.6-root.smallSpacing: parent.height - root.largeSpacing
+            Layout.preferredHeight: parent.small ? parent.height/1.3-root.smallSpacing: parent.height - root.largeSpacing
             Layout.preferredWidth: Layout.preferredHeight
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         }
@@ -30,11 +30,12 @@ Card {
             Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.margins: root.smallSpacing
-            font.pixelSize: parent.small ? root.mediumFontSize : root.largeFontSize
-            font.weight: parent.small ? Font.Normal : Font.Bold
+            font.pixelSize: parent.small ? root.smallFontSize : root.mediumFontSize
+            font.weight:Font.Bold
             horizontalAlignment: parent.small ? Qt.AlignHCenter : Qt.AlignLeft
             verticalAlignment: Qt.AlignVCenter
             wrapMode: Text.WordWrap
+            elide: Text.ElideRight
         }
     }
     MouseArea {

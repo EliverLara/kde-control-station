@@ -30,8 +30,8 @@ PlasmoidItem {
     property int buttonHeight: 48 * scale
 
     property int largeFontSize: 15 * scale
-    property int mediumFontSize: 12 * scale
-    property int smallFontSize: 7 * scale
+    property int mediumFontSize: 13 * scale
+    property int smallFontSize: 11 * scale
 
     property int itemSpacing: 8
 

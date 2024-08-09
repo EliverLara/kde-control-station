@@ -94,7 +94,7 @@ Card {
                     width: slider.availableWidth
                     height: parent.height
                     radius: height / 2
-                    color: root.isDarkTheme ? Qt.lighter(root.themeBgColor, 1.8) : Qt.darker(root.themeBgColor, 1.2)
+                    color: root.disabledBgColor
 
                     Rectangle {
                         id: levelIndicator

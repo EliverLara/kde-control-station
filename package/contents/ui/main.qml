@@ -39,6 +39,7 @@ PlasmoidItem {
     property color themeBgColor: Kirigami.Theme.backgroundColor
     property color themeHighlightColor: Kirigami.Theme.highlightColor
     property bool isDarkTheme: ColorType.isDark(themeBgColor)
+    property color disabledBgColor: isDarkTheme ? Qt.rgba(255, 255, 255, 0.15) : Qt.rgba(0, 0, 0, 0.15)
     
     // Main Icon
     property string mainIconName: Plasmoid.configuration.mainIconName

@@ -54,7 +54,7 @@ Lib.CardButton {
     Lib.Icon {
         anchors.fill: parent
         source: network.activeConnectionIcon
-        sourceColor: (network.networkStatus.activeConnections != "") || isAirplane ? Kirigami.Theme.highlightColor : Kirigami.Theme.disabledTextColor
+        selected: (network.networkStatus.activeConnections != "") || isAirplane 
     }
     onClicked: {
         sectionNetworks.toggleNetworkSection();

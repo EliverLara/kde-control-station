@@ -40,10 +40,12 @@ Lib.CardButton {
     function updateIcon() {
         if (Funcs.checkInhibition()) {
             dndIcon.source = "notifications-disabled"
-            dndIcon.sourceColor =  root.themeHighlightColor
+            dndIcon.selected = true
+           // dndIcon.sourceColor =  root.themeHighlightColor
         } else {
             dndIcon.source = "notifications"
-            dndIcon.sourceColor = Kirigami.Theme.disabledTextColor
+            dndIcon.selected = false
+            //dndIcon.sourceColor = Kirigami.Theme.disabledTextColor
         }
     }
     

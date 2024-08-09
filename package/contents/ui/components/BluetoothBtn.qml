@@ -28,7 +28,7 @@ Lib.CardButton {
     Lib.Icon {
         anchors.fill: parent
         source: "network-bluetooth"
-        sourceColor:  Funcs.getBtDevice() != "Disabled" ?  Kirigami.Theme.highlightColor : Kirigami.Theme.disabledTextColor
+        selected:  Funcs.getBtDevice() != "Disabled"
     }
     onClicked: {
         Funcs.toggleBluetooth()

@@ -21,7 +21,7 @@ Lib.CardButton {
     Lib.Icon {
         anchors.fill: parent
         source: root.isDarkTheme ? "brightness-high" : "brightness-low"
-        sourceColor: root.isDarkTheme ? root.themeHighlightColor : Kirigami.Theme.disabledTextColor
+        selected: root.isDarkTheme
     }
 
     onClicked: {

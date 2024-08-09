@@ -8,11 +8,12 @@ Item
 {
     property alias sourceColor:rect.color
     property alias source: icon.source
+    property alias selected: icon.selected
 
     Rectangle {
         id: rect
         radius: width/2
-        color: Kirigami.Theme.highlightColor
+        color: icon.selected ? Kirigami.Theme.highlightColor : root.disabledBgColor
         anchors.fill: parent
         
 
@@ -21,7 +22,7 @@ Item
             anchors.fill: parent
             anchors.margins: root.smallSpacing
             anchors.centerIn: parent
-           // status: Kirigami.Icon.Selected
+            selected: false
         }
     }
 }

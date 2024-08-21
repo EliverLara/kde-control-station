@@ -10,6 +10,7 @@ import org.kde.plasma.workspace.components
 import org.kde.coreaddons as KCoreAddons
 import org.kde.ksvg as KSvg
 
+import org.kde.kirigami as Kirigami
 
 
 KSvg.FrameSvgItem {
@@ -38,7 +39,7 @@ KSvg.FrameSvgItem {
     RowLayout {
         anchors.fill: parent
        // anchors.margins: button.margin
-        spacing: PlasmaCore.Units.gridUnit
+        spacing: Kirigami.Units.gridUnit
         clip: true
 
         BatteryIcon {
@@ -57,10 +58,10 @@ KSvg.FrameSvgItem {
         ColumnLayout {
             Layout.fillWidth: true
             Layout.alignment: batteryItem.isPresent ? Qt.AlignTop : Qt.AlignVCenter
-            spacing: PlasmaCore.Units.smallSpacing
+            spacing: Kirigami.Units.smallSpacing
 
             RowLayout {
-                spacing: PlasmaCore.Units.smallSpacing
+                spacing: Kirigami.Units.smallSpacing
 
                 PlasmaComponents.Label {
                     Layout.fillWidth: true
@@ -102,10 +103,10 @@ KSvg.FrameSvgItem {
                 id: details
 
                 Layout.fillWidth: true
-                Layout.topMargin: PlasmaCore.Units.smallSpacing
+                Layout.topMargin: Kirigami.Units.smallSpacing
 
                 columns: 2
-                columnSpacing: PlasmaCore.Units.smallSpacing
+                columnSpacing: Kirigami.Units.smallSpacing
                 rowSpacing: 0
 
                 Accessible.description: {
@@ -122,7 +123,7 @@ KSvg.FrameSvgItem {
                     // fillWidth is true, so using internal alignment
                     horizontalAlignment: Text.AlignLeft
                     Layout.fillWidth: true
-                    font: Kirigami.Theme.smallestFont
+                    font: Kirigami.Theme.smallFont
                     wrapMode: Text.WordWrap
                     enabled: false
                 }
@@ -130,7 +131,7 @@ KSvg.FrameSvgItem {
                     // fillWidth is false, so using external (grid-cell-internal) alignment
                     Layout.alignment: Qt.AlignRight
                     Layout.fillWidth: false
-                    font: Kirigami.Theme.smallestFont
+                    font: Kirigami.Theme.smallFont
                     enabled: false
                 }
 
@@ -141,7 +142,7 @@ KSvg.FrameSvgItem {
                     text: batteryItem.isBroken && typeof batteryItem.battery.Capacity !== "undefined"
                         ? i18n("This battery's health is at only %1% and it should be replaced. Contact the manufacturer.", batteryItem.battery.Capacity)
                         : ""
-                    font: Kirigami.Theme.smallestFont
+                    font: Kirigami.Theme.smallFont
                     color: Kirigami.Theme.neutralTextColor
                     visible: batteryItem.isBroken
                     wrapMode: Text.WordWrap

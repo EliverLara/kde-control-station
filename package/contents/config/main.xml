@@ -29,6 +29,17 @@
             <label>Dark Theme</label>
             <default>BreezeDark</default>
         </entry>
+        <entry name="preferChangeGlobalTheme" type="Bool">
+            <default>False</default>
+        </entry>
+        <entry name="lightGlobalTheme" type="String">
+            <label>Light Global Theme</label>
+            <default>org.kde.breeze.desktop</default>
+        </entry>
+        <entry name="darkGlobalTheme" type="String">
+            <label>Dark Global Theme</label>
+            <default>org.kde.breezedark.desktop</default>
+        </entry>
         
         <!--    BEHAVIOUR      -->
         <entry name="playVolumeFeedback" type="Bool">

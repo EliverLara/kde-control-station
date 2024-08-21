@@ -5,10 +5,20 @@ import QtQuick.Layouts 1.0
 import org.kde.plasma.plasma5support as Plasma5Support
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 import org.kde.kcmutils as KCM
+import org.kde.kirigami as Kirigami
 
 KCM.SimpleKCM {
     property alias cfg_lightTheme: labelA.text // labels to store previous choices (ComboBox doesn't like to do it by itself)
-    property alias cfg_darkTheme: labelB.text // labels to store previous choices (ComboBox doesn't like to do it by itself)
+    property alias cfg_darkTheme:  labelB.text // labels to store previous choices (ComboBox doesn't like to do it by itself)
+
+    property alias cfg_lightGlobalTheme: labelC.text// labels to store previous choices (ComboBox doesn't like to do it by itself)
+    property alias cfg_darkGlobalTheme:  labelD.text // labels to store previous choices (ComboBox doesn't like to do it by itself)
+    
+    property alias cfg_preferChangeGlobalTheme: preferChangeGlobalTheme.checked
+
+    property string command: preferChangeGlobalTheme.checked ? 
+                            "plasma-apply-lookandfeel --list" : 
+                            "plasma-apply-colorscheme --list-schemes | tail --lines=+2"
     
     Plasma5Support.DataSource {
         id: executable
@@ -23,11 +33,15 @@ KCM.SimpleKCM {
 
         onNewData: {
             var colors = data["stdout"].split("\n")
-            console.log(colors)
-            for (var i = 0; i < colors.length; i++) // parse command output
-                colors[i] = colors[i].substring(3).split(" ")[0]
-                colorsListReady(colors)
-                disconnectSource(sourceName) // cmd finished
+            if(!preferChangeGlobalTheme.checked) {
+                for (var i = 0; i < colors.length; i++) { // parse command output
+                    colors[i] = colors[i].substring(3).split(" ")[0]
+                }
+            } 
+            colors.pop()
+            colorsListReady(colors)
+            disconnectSource(sourceName) // cmd finished
+            
         }
 
     }
@@ -39,6 +53,15 @@ KCM.SimpleKCM {
     }
     Label {
         id: labelB
+        visible: false
+    }
+   
+    Label {
+        id: labelC
+        visible: false
+    }
+    Label {
+        id: labelD
         visible: false
     }
 
@@ -61,8 +84,9 @@ KCM.SimpleKCM {
             cBoxA.model = colors
             cBoxB.model = colors
             // look for color in list
-            setText(cBoxA, labelA.text)
-            setText(cBoxB, labelB.text)
+
+            setText(cBoxA, preferChangeGlobalTheme.checked ? labelC.text : labelA.text)
+            setText(cBoxB,  preferChangeGlobalTheme.checked ? labelD.text : labelB.text)
             // enable changes user just after everything is set up
             cBoxA.isChangeAvailable = true
             cBoxB.isChangeAvailable = true
@@ -70,6 +94,14 @@ KCM.SimpleKCM {
     }
 
     ColumnLayout {
+        
+        CheckBox {
+            id: preferChangeGlobalTheme
+            text: i18n("Change global theme instead of just changing color scheme")
+            onClicked: {
+                executable.exec(command)
+            }
+        }
         GridLayout {
             columns: 2
             Label {
@@ -86,8 +118,9 @@ KCM.SimpleKCM {
                 Layout.column: 1
                 Layout.minimumWidth: 300
                 onCurrentTextChanged: {
+                    var targetLabel =  preferChangeGlobalTheme.checked ? labelC : labelA
                     if (isChangeAvailable)
-                        labelA.text = currentText
+                        targetLabel.text = currentText
                 }
             }
 
@@ -106,14 +139,16 @@ KCM.SimpleKCM {
                 Layout.minimumWidth: 300
 
                 onCurrentTextChanged: {
+                    var targetLabel =  preferChangeGlobalTheme.checked ? labelD : labelB
                     if (isChangeAvailable)
-                        labelB.text = currentText
+                       targetLabel.text = currentText
+                        console.log(targetLabel.text)
                 }
             }
         }
     }
 
     Component.onCompleted: {
-        executable.exec("plasma-apply-colorscheme --list-schemes | tail --lines=+2")
+        executable.exec(command)
     }
 }

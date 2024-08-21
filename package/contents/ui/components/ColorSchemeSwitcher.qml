@@ -9,7 +9,7 @@ import org.kde.plasma.plasma5support as Plasma5Support
 import org.kde.kirigami as Kirigami 
 
 import "../lib" as Lib
-
+import "../js/colorType.js" as ColorType
 
 Lib.CardButton {
     id: colorSchemeSwitcher
@@ -18,6 +18,9 @@ Lib.CardButton {
     Layout.fillHeight: true
     Layout.fillWidth: true
     title: i18n("Dark Theme")
+    property string command: root.preferChangeGlobalTheme ? 
+                            "plasma-apply-lookandfeel -a " : 
+                            "plasma-apply-colorscheme "
     Lib.Icon {
         anchors.fill: parent
         source: root.isDarkTheme ? "brightness-high" : "brightness-low"
@@ -25,7 +28,8 @@ Lib.CardButton {
     }
 
     onClicked: {
-        executable.swapColorScheme();
+        var colorSchemeName = root.isDarkTheme ? root.generalLightTheme : root.generalDarkTheme
+        executable.swapColorScheme(command+colorSchemeName);
         root.isDarkTheme = !root.isDarkTheme
     }
 
@@ -41,9 +45,8 @@ Lib.CardButton {
             connectSource(cmd)
         }
 
-        function swapColorScheme() {
-            var colorSchemeName = root.isDarkTheme ? Plasmoid.configuration.lightTheme : Plasmoid.configuration.darkTheme
-            exec("plasma-apply-colorscheme " + colorSchemeName)
+        function swapColorScheme(what) {
+            exec(what)
         }
     }
 }

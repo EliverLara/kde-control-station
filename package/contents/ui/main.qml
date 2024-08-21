@@ -7,6 +7,7 @@ import org.kde.plasma.plasma5support as Plasma5Support
 import org.kde.kirigami as Kirigami
 import org.kde.kitemmodels as KItemModels
 
+
 PlasmoidItem {
     id: root
     
@@ -16,6 +17,10 @@ PlasmoidItem {
     property bool enableTransparency: Plasmoid.configuration.transparency
     property var animationDuration: Kirigami.Units.veryShortDuration
     property bool playVolumeFeedback: Plasmoid.configuration.playVolumeFeedback
+
+    property bool preferChangeGlobalTheme: Plasmoid.configuration.preferChangeGlobalTheme
+    property string generalLightTheme: preferChangeGlobalTheme ? Plasmoid.configuration.lightGlobalTheme : Plasmoid.configuration.lightTheme
+    property string generalDarkTheme: preferChangeGlobalTheme ? Plasmoid.configuration.darkGlobalTheme : Plasmoid.configuration.darkTheme
 
     property var scale: Plasmoid.configuration.scale * 1 / 100
     property int fullRepWidth: 420 * scale

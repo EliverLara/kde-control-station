@@ -75,51 +75,13 @@ Item {
             Layout.maximumHeight: root.sectionHeight
             
             // Network, Bluetooth and Settings Button
-            Components.SectionButtons{}
-            
-            // Quick Toggle Buttons
-            ColumnLayout {
-                spacing: root.itemSpacing
+            Components.SectionQuickToggleButtons{}
 
-                Layout.maximumWidth : root.fullRepWidth / 2 + root.itemSpacing
-                
-                Components.DndButton{}
-                RowLayout {
-                    spacing: root.itemSpacing
-                    
-                    // Two blocks for custom commands
-                    Components.CommandRun{
-                        visible: root.showCmd1
-                        title: root.cmdTitle1
-                        icon: root.cmdIcon1
-                        command: root.cmdRun1
-                    }
-                    Components.CommandRun{
-                        visible: root.showCmd2
-                        title: root.cmdTitle2
-                        icon: root.cmdIcon2
-                        command: root.cmdRun2
-                    }
-                    
-                    // Other blocks
-                    Components.KDEConnect{}
-                   // Components.RedShift{}
-                    Components.ColorSchemeSwitcher{}
-                }
-            }
+            // Screen controls section
+            Components.SectionScreenControls{}
         }
 
-        ColumnLayout {
-            id: sectionB
-
-            spacing: root.itemSpacing
-            Layout.fillWidth: true
-
-            Components.Volume{}
-            Components.BrightnessSlider{}
-            Components.MediaPlayer{}
-        }
-        
-
+        Components.Volume{}
+        Components.MediaPlayer{}
     }
 }

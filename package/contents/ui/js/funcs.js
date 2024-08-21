@@ -56,6 +56,26 @@ function checkInhibition() {
     }
     return inhibited;
 }
+
+function toggleDnd() {
+    if (Funcs.checkInhibition()) {
+        notificationSettings.notificationsInhibitedUntil = undefined;
+        notificationSettings.revokeApplicationInhibitions();
+
+        // overrules current mirrored screen setup, updates again when screen configuration
+        notificationSettings.screensMirrored = false;
+        notificationSettings.save();
+
+        return;
+    }
+
+    var d = new Date();
+    d.setYear(d.getFullYear()+1)
+
+    notificationSettings.notificationsInhibitedUntil = d
+    notificationSettings.save()
+}
+
 function revokeInhibitions() {
     notificationSettings.notificationsInhibitedUntil = undefined;
     notificationSettings.revokeApplicationInhibitions();

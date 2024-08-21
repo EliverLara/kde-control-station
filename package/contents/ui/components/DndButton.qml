@@ -12,9 +12,7 @@ Lib.CardButton {
     Layout.fillWidth: true
     Layout.fillHeight: true
     title: i18n("Do Not Disturb")
-    
-    Component.onCompleted: updateIcon()
-    
+        
     // NOTIFICATION MANAGER
     property var notificationSettings: notificationSettings
     NotificationManager.Settings {
@@ -23,34 +21,15 @@ Lib.CardButton {
     
     // Enables "Do Not Disturb" on click
     onClicked: {
-        var d= new Date();
-        d.setYear(d.getFullYear()+1)
-        
-        // Checking if do not disturb is already enabled 
-        if (Funcs.checkInhibition()) {
-            Funcs.revokeInhibitions()
-        } else {
-            notificationSettings.notificationsInhibitedUntil = d
-            notificationSettings.save()
-        }
-        updateIcon()
-    }
-    
-    // Updates icon
-    function updateIcon() {
-        if (Funcs.checkInhibition()) {
-            dndIcon.source = "notifications-disabled"
-            dndIcon.selected = true
-           // dndIcon.sourceColor =  root.themeHighlightColor
-        } else {
-            dndIcon.source = "notifications"
-            dndIcon.selected = false
-            //dndIcon.sourceColor = Kirigami.Theme.disabledTextColor
-        }
+        Funcs.toggleDnd();
     }
     
     Lib.Icon {
         id: dndIcon
         anchors.fill: parent
+        source: {
+            return (Funcs.checkInhibition() ? "notifications-disabled" : "notifications");
+        }
+        selected: Funcs.checkInhibition()
     }
 }

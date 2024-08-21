@@ -10,6 +10,7 @@ import org.kde.plasma.components as PlasmaComponents
 
 import "lib" as Lib
 import "components" as Components
+import "pages" as Pages
 import "js/funcs.js" as Funcs 
 
 
@@ -39,6 +40,11 @@ Item {
         id: sectionBatteries
         model: fullRep.batteries
         remainingTime: fullRep.remainingTime
+    }
+
+    // System session actions page
+    Pages.SystemSessionActionsPage {
+        id: systemSessionActionsPage
     }
 
     // Main wrapper

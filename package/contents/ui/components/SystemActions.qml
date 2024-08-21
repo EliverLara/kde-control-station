@@ -50,7 +50,7 @@ Lib.Card {
         cursorShape: Qt.PointingHandCursor
         hoverEnabled: true
         onClicked: {
-            pmSource.performOperation("requestShutDown")
+            systemSessionActionsPage.toggleSection()
         }
         onEntered: showToolTip = true
         onExited: showToolTip = false

@@ -27,7 +27,7 @@ Lib.Card {
         BatteryIcon {
             id: batteryIcon
 
-            Layout.alignment: Qt.AlignCenterLeft
+            Layout.alignment: Qt.AlignCenterLeft | Qt.AlignVcenter
             Layout.preferredWidth: Kirigami.Units.iconSizes.medium
             Layout.preferredHeight: Kirigami.Units.iconSizes.medium
 
@@ -41,6 +41,8 @@ Lib.Card {
             id: percentLabel
             horizontalAlignment: Text.AlignLeft
             text: i18nc("Placeholder is battery percentage", "%1%", battery.battery.Percent)
+            font.pixelSize: root.mediumFontSize
+            font.weight:Font.Bold
         }
     }
 

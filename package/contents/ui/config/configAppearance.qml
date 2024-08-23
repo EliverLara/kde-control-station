@@ -13,7 +13,7 @@ KCM.SimpleKCM {
     property alias cfg_scale: scale.value
     property alias cfg_transparency: transparency.checked
     property alias cfg_showKDEConnect: showKDEConnect.checked
-    property alias cfg_showNightColor: showNightColor.checked
+    property alias cfg_showNightLight: showNightLight.checked
     property alias cfg_showColorSwitcher: showColorSwitcher.checked
     property alias cfg_showVolume: showVolume.checked
     property alias cfg_showBrightness: showBrightness.checked
@@ -29,7 +29,7 @@ KCM.SimpleKCM {
     property alias cfg_cmdRun2: cmdRun2.text
     property alias cfg_cmdTitle2: cmdTitle2.text
 
-    property int numChecked: showKDEConnect.checked + showColorSwitcher.checked + showNightColor.checked + showCmd1.checked + showCmd2.checked
+    property int numChecked: showKDEConnect.checked + showColorSwitcher.checked + showNightLight.checked + showCmd1.checked + showCmd2.checked
     property int maxNum: 2
 
     // Used to select icons
@@ -82,9 +82,8 @@ KCM.SimpleKCM {
             enabled: !checked && numChecked < maxNum || checked
         }
         CheckBox {
-            id: showNightColor
-            text: i18n('Night Color')
-            enabled: !checked && numChecked < maxNum || checked
+            id: showNightLight
+            text: i18n('Night Light')
         }
         CheckBox {
             id: showColorSwitcher

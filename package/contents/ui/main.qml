@@ -52,7 +52,7 @@ PlasmoidItem {
     
     // Components
     property bool showKDEConnect: Plasmoid.configuration.showKDEConnect
-    property bool showNightColor: Plasmoid.configuration.showNightColor
+    property bool showNightLight: Plasmoid.configuration.showNightLight
     property bool showColorSwitcher: Plasmoid.configuration.showColorSwitcher
     property bool showDnd: Plasmoid.configuration.showDnd
     property bool showVolume: Plasmoid.configuration.showVolume

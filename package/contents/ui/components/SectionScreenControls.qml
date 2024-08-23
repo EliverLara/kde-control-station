@@ -23,6 +23,7 @@ Lib.Card {
         BrightnessSlider{}
 
         RowLayout {
+            NightLight{}
             ColorSchemeSwitcher{}
         }
     }

@@ -51,7 +51,7 @@
         <entry name="showKDEConnect" type="bool">
             <default>false</default>
         </entry>
-        <entry name="showNightColor" type="bool">
+        <entry name="showNightLight" type="bool">
             <default>true</default>
         </entry>
         <entry name="showColorSwitcher" type="bool">

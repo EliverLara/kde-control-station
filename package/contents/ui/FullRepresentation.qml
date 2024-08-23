@@ -47,6 +47,11 @@ Item {
         id: systemSessionActionsPage
     }
 
+    // Night Light Page
+    Pages.NightLightPage {
+        id: nightLightPage
+    }
+
     // Main wrapper
     ColumnLayout {
         id: wrapper

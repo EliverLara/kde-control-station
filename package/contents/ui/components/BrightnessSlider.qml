@@ -26,7 +26,7 @@ Lib.Slider {
     property int screenBrightness: sbControl.brightness
     property bool disableBrightnessUpdate: true
 
-    readonly property alias isBrightnessAvailable: sbControl.isBrightnessAvailable
+    property bool isBrightnessAvailable: sbControl.isBrightnessAvailable
     readonly property int maximumScreenBrightness: sbControl.brightnessMax
     readonly property int brightnessMin: (maximumScreenBrightness > 100 ? 1 : 0)
 
@@ -52,5 +52,10 @@ Lib.Slider {
         target: brightnessControl
         property: "screenBrightness"
         value: sbControl.brightness
+    }
+    Binding {
+        target: brightnessControl
+        property: "isBrightnessAvailable"
+        value: sbControl.isBrightnessAvailable
     }
 }

@@ -18,9 +18,4 @@ ConfigModel {
         source: "config/configColorscheme.qml"
         visible: Plasmoid.configuration.showColorSwitcher
     }
-    ConfigCategory {
-        name: i18n("Support")
-        icon: "face-angel"
-        source: "config/configSupport.qml"
-    }
 }

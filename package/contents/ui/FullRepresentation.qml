@@ -17,7 +17,7 @@ import "js/funcs.js" as Funcs
 Item {
     id: fullRep
 
-    property int remainingTime
+    property alias remainingTime: sectionBatteries.remainingTime
     property alias battery: mainBatteryWidget.battery
     property QtObject batteries
     

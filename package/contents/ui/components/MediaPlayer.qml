@@ -75,6 +75,7 @@ Lib.Card {
             source: mediaPlayer.albumArt || "../../assets/music.png"
             Layout.fillHeight: true
             Layout.preferredWidth: height
+            enabled: track || (mediaPlayer.playbackStatus > Mpris.PlaybackStatus.Stopped) ? true : false
         }
         ColumnLayout {
             id: mediaNameWrapper
@@ -88,6 +89,7 @@ Lib.Card {
                 font.capitalization: Font.Capitalize
                 font.weight: Font.Bold
                 font.pixelSize: root.largeFontSize
+                enabled: track || (mediaPlayer.playbackStatus > Mpris.PlaybackStatus.Stopped) ? true : false
                 //horizontalAlignment: Text.AlignHCenter
                 elide: Text.ElideRight
                 text: track ? track : (mediaPlayer.playbackStatus > Mpris.PlaybackStatus.Stopped) ? i18n("No title") : i18n("No media playing")

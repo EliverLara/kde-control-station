@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Gravit.io -->
+
+<svg
+   style="isolation:isolate"
+   viewBox="0 0 48 48"
+   width="48pt"
+   height="48pt"
+   fill="currentColor"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="dark-mode.svg"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="_lgradient_55"
+       x1="0"
+       y1="0.5"
+       x2="1"
+       y2="0.5"
+       gradientTransform="matrix(30.355019,0,0,30.623928,5.1632733,11.358128)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0%"
+         stop-opacity="1"
+         style="stop-color:rgb(255,153,102)"
+         id="stop107" />
+      <stop
+         offset="98.26086956521739%"
+         stop-opacity="1"
+         style="stop-color:rgb(255,94,98)"
+         id="stop109" />
+    </linearGradient>
+    <linearGradient
+       gradientTransform="matrix(1.7901171,0,0,1.8059758,-46.789508,-116.90587)"
+       gradientUnits="userSpaceOnUse"
+       id="_lgradient_56"
+       x1="28.771999"
+       y1="79.5"
+       x2="46.228001"
+       y2="79.5">
+      <stop
+         offset="0%"
+         stop-opacity="1"
+         style="stop-color:rgb(255,153,102)"
+         id="stop112" />
+      <stop
+         offset="98.26086956521739%"
+         stop-opacity="1"
+         style="stop-color:rgb(255,94,98)"
+         id="stop114" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="pt"
+     inkscape:zoom="6.038029"
+     inkscape:cx="-19.04595"
+     inkscape:cy="11.593187"
+     inkscape:window-width="2560"
+     inkscape:window-height="1328"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     d=" M 37.94 2.706 L 38.67 4.041 L 40.005 4.771 L 38.67 5.501 L 37.94 6.836 L 37.21 5.501 L 35.875 4.771 L 37.21 4.041 L 37.94 2.706 L 37.94 2.706 L 37.94 2.706 Z  M 26.634 11.126 L 27.364 12.461 L 28.699 13.191 L 27.364 13.922 L 26.634 15.257 L 25.904 13.922 L 24.569 13.191 L 25.904 12.461 L 26.634 11.126 L 26.634 11.126 L 26.634 11.126 Z  M 43.42 14.557 L 44.88 17.227 L 47.55 18.688 L 44.88 20.148 L 43.42 22.818 L 41.959 20.148 L 39.289 18.688 L 41.959 17.227 L 43.42 14.557 L 43.42 14.557 Z  M 29.652 18.688 L 30.626 20.468 L 32.406 21.441 L 30.626 22.415 L 29.652 24.195 L 28.678 22.415 L 26.898 21.441 L 28.678 20.468 L 29.652 18.688 Z "
+     fill-rule="evenodd"
+     fill="url(#_lgradient_0)"
+     id="path2"
+     style="fill:#dec900;fill-opacity:1" />
+  <path
+     d="m 17.853411,12.78846 c -6.564365,1.173884 -11.5229849,6.947586 -11.5229849,13.880728 0,7.800005 6.2779429,14.133565 14.0094569,14.133565 6.865103,0 12.584526,-4.991718 13.755264,-11.6052 l 0.0036,-0.01989 c -1.904684,1.397822 -4.237206,2.203287 -6.754111,2.203287 -6.442632,0 -11.675147,-5.278862 -11.675147,-11.778568 0,-2.539203 0.798394,-4.892391 2.183945,-6.813949 z m 16.920189,14.308741 0.699939,-0.857834 0.04298,0.429821 -0.144993,1.448394 -0.0018,0.02348 c -0.665924,7.767502 -7.149728,13.839191 -15.029826,13.839191 -8.375964,0 -15.1766151,-6.860901 -15.1766151,-15.31106 0,-7.957131 6.0291201,-14.505597 13.7409441,-15.164777 l 1.435671,-0.146277 0.42605,0.04333 -0.850305,0.706135 -0.418888,0.514704 -0.01972,0.01989 c -1.65768,1.845709 -2.640453,4.287386 -2.640453,6.96023 0,5.849555 4.709796,10.601077 10.507989,10.601077 2.658321,0 5.08751,-1.000511 6.9188,-2.683682 z"
+     stroke-miterlimit="1.41420996"
+     id="path117"
+     inkscape:connector-curvature="0"
+     style="clip-rule:evenodd;isolation:isolate;vector-effect:non-scaling-stroke;fill:#ffffff;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.899017;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:1.41421;stroke-opacity:1;fill-opacity:1" />
+</svg>

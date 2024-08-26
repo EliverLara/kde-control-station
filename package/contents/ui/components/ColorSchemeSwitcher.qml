@@ -23,8 +23,9 @@ Lib.CardButton {
                             "plasma-apply-colorscheme "
     Lib.Icon {
         anchors.fill: parent
-        source: root.isDarkTheme ? "brightness-high" : "brightness-low"
+        image: Qt.resolvedUrl("../icons/feather/dark-mode.svg")
         selected: root.isDarkTheme
+        customIcon: true
     }
 
     onClicked: {

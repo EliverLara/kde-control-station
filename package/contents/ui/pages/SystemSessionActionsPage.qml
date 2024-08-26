@@ -7,6 +7,7 @@ import org.kde.plasma.components as PlasmaComponents3
 import org.kde.plasma.networkmanagement as PlasmaNM
 import "../lib" as Lib
 import org.kde.plasma.private.sessions as Sessions
+import org.kde.kirigami as Kirigami
 
 PageTemplate {
     id: systemSessionActionsPage
@@ -67,7 +68,7 @@ PageTemplate {
                 Layout.fillWidth: true
                 Layout.preferredHeight: root.sectionHeight / 3
                 title: name
-                Lib.Icon {
+                Kirigami.Icon {
                     anchors.fill: parent
                     source: icon
                     selected: false

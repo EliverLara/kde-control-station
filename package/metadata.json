@@ -3,30 +3,26 @@
     "KPlugin": {
         "Authors": [
             {
-                "Email": "prayagjain2@gmail.com",
-                "Name": "Prayag Jain"
+                "Email": "eliverlara@gmail.com",
+                "Name": "Eliver Lara"
             }
         ],
         "Category": "Utilities",
-        "Description": "A control centre inspired by MacOS!",
+        "Description": "A modern control station for plasma based on the awesome work of prayag2!",
         "Icon": "configure-toolbars",
-        "Id": "com.github.prayag2.controlcentre",
+        "Id": "KdeControlStation",
         "License": "GPLv3",
-        "Name": "Control Centre",
+        "Name": "KDE control station",
         "ServiceTypes": [
             "Plasma/Applet"
         ],
         "Version": "0.1.0",
-        "Website": "https://github.com/prayag2/kde_controlcentre"
+        "Website": "https://github.com/EliverLara/kde-control-station/tree/plasma6"
 
     },
-    "X-Plasma-API": "declarativeappletscript",
     "X-Plasma-MainScript": "ui/main.qml",
-    "X-Plasma-Provides": [
-        "org.kde.plasma.multimediacontrols",
-        "org.kde.plasma.powermanagement",
-        "org.kde.plasma.notifications"
-    ],
+    "X-Plasma-Provides": "org.kde.plasma.multimediacontrols,org.kde.plasma.powermanagement,org.kde.plasma.notifications",
     "X-Plasma-NotificationArea": "true",
+
     "X-Plasma-API-Minimum-Version": "6.0"
 }

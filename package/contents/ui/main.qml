@@ -58,16 +58,16 @@ PlasmoidItem {
     property bool showVolume: Plasmoid.configuration.showVolume
     property bool showBrightness: Plasmoid.configuration.showBrightness
     property bool showMediaPlayer: Plasmoid.configuration.showMediaPlayer
-    property bool showCmd1: Plasmoid.configuration.showCmd1
-    property bool showCmd2: Plasmoid.configuration.showCmd2
+    // property bool showCmd1: Plasmoid.configuration.showCmd1
+    // property bool showCmd2: Plasmoid.configuration.showCmd2
     property bool showPercentage: Plasmoid.configuration.showPercentage
     
-    property string cmdRun1: Plasmoid.configuration.cmdRun1
-    property string cmdTitle1: Plasmoid.configuration.cmdTitle1
-    property string cmdIcon1: Plasmoid.configuration.cmdIcon1
-    property string cmdRun2: Plasmoid.configuration.cmdRun2
-    property string cmdTitle2: Plasmoid.configuration.cmdTitle2
-    property string cmdIcon2: Plasmoid.configuration.cmdIcon2
+    // property string cmdRun1: Plasmoid.configuration.cmdRun1
+    // property string cmdTitle1: Plasmoid.configuration.cmdTitle1
+    // property string cmdIcon1: Plasmoid.configuration.cmdIcon1
+    // property string cmdRun2: Plasmoid.configuration.cmdRun2
+    // property string cmdTitle2: Plasmoid.configuration.cmdTitle2
+    // property string cmdIcon2: Plasmoid.configuration.cmdIcon2
 
     readonly property bool inPanel: (Plasmoid.location === PlasmaCore.Types.TopEdge
         || Plasmoid.location === PlasmaCore.Types.RightEdge

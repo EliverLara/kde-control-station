@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.15
 import org.kde.plasma.components as PlasmaComponents
 import org.kde.plasma.plasma5support as Plasma5Support
 import org.kde.kirigami as Kirigami
+import Qt5Compat.GraphicalEffects
 
 import org.kde.plasma.private.mediacontroller 1.0
 import org.kde.plasma.private.mpris as Mpris
@@ -72,10 +73,17 @@ Lib.Card {
         Image {
             id: audioThumb
             fillMode: Image.PreserveAspectCrop
-            source: mediaPlayer.albumArt || "../../assets/music.png"
+            source: mediaPlayer.albumArt || "../../assets/music.svg"
             Layout.fillHeight: true
             Layout.preferredWidth: height
             enabled: track || (mediaPlayer.playbackStatus > Mpris.PlaybackStatus.Stopped) ? true : false
+
+            ColorOverlay {
+                visible: !mediaPlayer.albumArt && audioThumb.enabled
+                anchors.fill: audioThumb
+                source: audioThumb
+                color: Kirigami.Theme.textColor
+            }
         }
         ColumnLayout {
             id: mediaNameWrapper

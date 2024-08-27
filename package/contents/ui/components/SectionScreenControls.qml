@@ -11,18 +11,23 @@ import "../js/funcs.js" as Funcs
 Lib.Card {
     id: sectionScreenControls
     Layout.fillWidth: true
-    Layout.fillHeight: true
-    
+    Layout.preferredHeight: (brightnessSlider.visible && secondaryRow.visible) ?  root.sectionHeight : root.sectionHeight/2
+    Layout.alignment: Qt.AlignTop
+    visible: brightnessSlider.visible || root.showBrightness || root.showColorSwitcher || root.showNightLight
     // All Buttons
     ColumnLayout {
         id: buttonsColumn
         anchors.fill: parent
         anchors.margins: root.smallSpacing
-        spacing:  root.smallSpacing
+        spacing: root.smallSpacing
 
-        BrightnessSlider{}
+        BrightnessSlider{
+            id: brightnessSlider
+        }
 
         RowLayout {
+            id: secondaryRow
+            visible: root.showColorSwitcher || root.showNightLight
             NightLight{}
             ColorSchemeSwitcher{}
         }

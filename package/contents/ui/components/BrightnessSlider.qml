@@ -17,7 +17,6 @@ Lib.Slider {
    // Layout.preferredHeight: root.sectionHeight/2
     
     // Get brightness control from KDE components
-    property ScreenBrightnessControl test
     ScreenBrightnessControl {
         id: sbControl
         isSilent: false

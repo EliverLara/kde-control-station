@@ -10,6 +10,7 @@ Card {
     id: sliderComp
     signal moved
     signal clicked
+    signal togglePage
 
     property alias title: title.text
     property alias secondaryTitle: secondaryTitle.text
@@ -17,6 +18,7 @@ Card {
     property bool useIconButton: false
     property string source
 
+    property bool canTogglePage: false
 
     property int from: 0
     property int to: 100
@@ -121,6 +123,15 @@ Card {
                 onMoved: {
                     sliderComp.moved()
                 }
+            }
+
+            PlasmaComponents2.ToolButton {
+                id: openVolumePageButton
+                visible: sliderComp.canTogglePage
+                icon.name: "arrow-right"
+                Layout.preferredHeight: root.largeFontSize*2
+                Layout.preferredWidth: Layout.preferredHeight
+                onClicked: sliderComp.togglePage()
             }
         }
     }

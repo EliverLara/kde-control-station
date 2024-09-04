@@ -52,6 +52,11 @@ Item {
         id: nightLightPage
     }
 
+    // Volume devices Page
+    Pages.VolumePage {
+        id: volumePage
+    }
+
     // Main wrapper
     ColumnLayout {
         id: wrapper

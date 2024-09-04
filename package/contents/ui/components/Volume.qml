@@ -14,6 +14,7 @@ Lib.Slider {
     visible: sinkAvailable && root.showVolume
     useIconButton: true
     title: i18n("Volume")
+    canTogglePage: true
     
     // Volume Feedback
     Vol.VolumeFeedback {
@@ -41,6 +42,10 @@ Lib.Slider {
     // Update volume
     onMoved: {
         sink.volume = value * Vol.PulseAudio.NormalVolume / 100
+    }
+    // Display view that shows audio devices list
+    onTogglePage: {
+        volumePage.toggleSection()
     }
     
     property var oldVol: 100 * Vol.PulseAudio.NormalVolume / 100

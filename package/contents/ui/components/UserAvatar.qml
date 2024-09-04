@@ -47,7 +47,7 @@ Lib.Card {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.margins: root.smallSpacing
-                text: kuser.loginName // i18n("%1@%2", kuser.loginName, kuser.host)
+                text: kuser.fullName // i18n("%1@%2", kuser.loginName, kuser.host)
                 font.pixelSize:  root.largeFontSize + 2
                 font.weight: Font.Bold
                 horizontalAlignment:  Qt.AlignLeft

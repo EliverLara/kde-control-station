@@ -8,7 +8,7 @@ import org.kde.plasma.components as PlasmaComponents
 
 Rectangle {
     color: root.enableTransparency ? 
-           Qt.rgba(root.themeBgColor.r, root.themeBgColor.g, root.themeBgColor.b, 0.4)
+           Qt.rgba(root.themeBgColor.r, root.themeBgColor.g, root.themeBgColor.b, root.transparencyLevel/100)
            : root.themeBgColor
 
     border.color: root.isDarkTheme ? Qt.lighter(root.themeBgColor, 2.0) : Qt.darker(root.themeBgColor, 1.3)

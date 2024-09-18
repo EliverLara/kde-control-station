@@ -29,6 +29,8 @@ KCM.SimpleKCM {
     // property alias cfg_cmdRun2: cmdRun2.text
     // property alias cfg_cmdTitle2: cmdTitle2.text
 
+    property alias cfg_transparencyLevel: transparencyLevel.value
+
     property int numChecked: showKDEConnect.checked + showColorSwitcher.checked + showNightLight.checked + showCmd1.checked + showCmd2.checked
     property int maxNum: 2
 
@@ -69,6 +71,16 @@ KCM.SimpleKCM {
         CheckBox {
             id: transparency
             text: i18n("Enable transparency")
+        }
+        Slider {
+            id: transparencyLevel
+            visible: transparency.checked
+            Kirigami.FormData.label: i18n("Transparency level of widgets (%1%):", 100-value)
+            from: 100
+            value: 40
+            to: 0
+            stepSize: 1
+            Layout.fillWidth: true
         }
 
         Item {

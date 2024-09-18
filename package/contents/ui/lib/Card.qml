@@ -11,7 +11,8 @@ Rectangle {
            Qt.rgba(root.themeBgColor.r, root.themeBgColor.g, root.themeBgColor.b, root.transparencyLevel/100)
            : root.themeBgColor
 
-    border.color: root.isDarkTheme ? Qt.lighter(root.themeBgColor, 2.0) : Qt.darker(root.themeBgColor, 1.3)
+    border.color: root.showBorders ? (root.isDarkTheme ? Qt.lighter(root.themeBgColor, 2.0) : Qt.darker(root.themeBgColor, 1.3))
+                                    : "transparent"
 
     property var margins: rect.margins
     default property alias content: dataContainer.data

@@ -12,6 +12,9 @@
         <entry name="transparency" type="Bool">
             <default>False</default>
         </entry>
+        <entry name="showBorders" type="Bool">
+            <default>true</default>
+        </entry>
         <entry name="transparencyLevel" type="Int">
             <label>Transparency level of widgets</label>
             <default>40</default>

@@ -42,6 +42,7 @@ Card {
                 font.pixelSize: root.largeFontSize
                 font.weight: Font.Bold
                 font.capitalization: Font.Capitalize
+                elide: Text.ElideRight
             }
 
             PlasmaComponents.Label {

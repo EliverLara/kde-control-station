@@ -51,7 +51,7 @@ Lib.Card {
         cursorShape: Qt.PointingHandCursor
         hoverEnabled: false
         onClicked: {
-            sectionBatteries.toggleSection()
+            batteryPage.toggleSection()
         }
     }
 }

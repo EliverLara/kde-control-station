@@ -17,9 +17,7 @@ import "js/funcs.js" as Funcs
 Item {
     id: fullRep
 
-    property alias remainingTime: sectionBatteries.remainingTime
     property alias battery: mainBatteryWidget.battery
-    property QtObject batteries
     
     // PROPERTIES
     Layout.preferredWidth: root.fullRepWidth
@@ -35,13 +33,6 @@ Item {
         id: sectionNetworks
     }
 
-    // Lists all available batteries
-    Components.SectionBatteries {
-        id: sectionBatteries
-        model: fullRep.batteries
-        remainingTime: fullRep.remainingTime
-    }
-
     // System session actions page
     Pages.SystemSessionActionsPage {
         id: systemSessionActionsPage
@@ -55,6 +46,11 @@ Item {
     // Volume devices Page
     Pages.VolumePage {
         id: volumePage
+    }
+
+    // Battery devices Page
+    Pages.BatteryPage {
+        id: batteryPage
     }
 
     // Main wrapper

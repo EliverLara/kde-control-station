@@ -87,31 +87,14 @@ PlasmoidItem {
         }
     }
 
-    property QtObject batteries: KItemModels.KSortFilterProxyModel {
-        id: batteries
-        filterRoleName: "Is Power Supply"
-        sortOrder: Qt.DescendingOrder
-        sourceModel: KItemModels.KSortFilterProxyModel {
-            sortRoleName: "Pretty Name"
-            sortOrder: Qt.AscendingOrder
-            sortCaseSensitivity: Qt.CaseInsensitive
-            sourceModel: Plasma5Support.DataModel {
-                dataSource: pmSource
-                sourceFilter: "Battery[0-9]+"
-            }
-        }
-    }
 
     property var battery: pmSource.data["Battery"]
-    readonly property int remainingTime: Number(pmSource.data["Battery"]["Smoothed Remaining msec"])
     
     switchHeight: fullRepWidth
     switchWidth: fullRepWidth
     preferredRepresentation: inPanel ? Plasmoid.compactRepresentation : Plasmoid.fullRepresentation
     fullRepresentation: FullRepresentation {
         battery: root.battery
-        remainingTime: root.remainingTime
-        batteries: root.batteries
     }
     compactRepresentation: CompactRepresentation {}
 }

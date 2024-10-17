@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.15
 import org.kde.plasma.components as PlasmaComponents
 import org.kde.plasma.plasma5support as Plasma5Support
 import "../lib" as Lib
+import org.kde.kitemmodels as KItemModels
 
 import org.kde.plasma.private.brightnesscontrolplugin
 
@@ -22,40 +23,56 @@ Lib.Slider {
         isSilent: false
     }
 
+    Connections {
+        id: displayModelConnections
+        target: sbControl.displays
+        property var screenBrightnessInfo: []
+
+        function update() {
+            const [labelRole, brightnessRole, maxBrightnessRole, displayNameRole] = ["label", "brightness", "maxBrightness", "displayName"].map(
+                (roleName) => target.KItemModels.KRoleNames.role(roleName));
+
+            screenBrightnessInfo = [...Array(target.rowCount()).keys()].map((i) => { // for each display index
+                const modelIndex = target.index(i, 0);
+                return {
+                    displayName: target.data(modelIndex, displayNameRole),
+                    label: target.data(modelIndex, labelRole),
+                    brightness: target.data(modelIndex, brightnessRole),
+                    maxBrightness: target.data(modelIndex, maxBrightnessRole),
+                };
+            });
+            brightnessControl.mainScreen = screenBrightnessInfo[0];
+        }
+        function onDataChanged() { update(); }
+        function onModelReset() { update(); }
+        function onRowsInserted() { update(); }
+        function onRowsMoved() { update(); }
+        function onRowsRemoved() { update(); }
+    }
+
     // Other properties
-    property int screenBrightness: sbControl.brightness
+    property var mainScreen: displayModelConnections.screenBrightnessInfo[0]
     property bool disableBrightnessUpdate: true
 
-    property bool isBrightnessAvailable: sbControl.isBrightnessAvailable
-    readonly property int maximumScreenBrightness: sbControl.brightnessMax
-    readonly property int brightnessMin: (maximumScreenBrightness > 100 ? 1 : 0)
+    readonly property int brightnessMin: (mainScreen.maxBrightness > 100 ? 1 : 0)
 
     // Should be visible ONLY if the monitor supports it
-    visible: isBrightnessAvailable && root.showBrightness
+    visible: sbControl.isBrightnessAvailable && root.showBrightness
 
     // Slider properties
-    title: "Display Brightness"
+    title: mainScreen.label
     source: "brightness-high"
-    secondaryTitle: Math.round((screenBrightness / maximumScreenBrightness)*100) + "%"
+    secondaryTitle: Math.round((mainScreen.brightness / mainScreen.maxBrightness)*100) + "%"
     
     from: 0
-    to: maximumScreenBrightness
-    value: screenBrightness
+    to: mainScreen.maxBrightness
+    value: mainScreen.brightness
     
     onMoved: {
-        screenBrightness = value
-        sbControl.brightness =  Math.max(brightnessMin, Math.min(maximumScreenBrightness, value));
+        sbControl.setBrightness(mainScreen.displayName, Math.max(brightnessMin, Math.min(mainScreen.maxBrightness, value))) ;
     }
 
-    Binding {
-        id: binder
-        target: brightnessControl
-        property: "screenBrightness"
-        value: sbControl.brightness
-    }
-    Binding {
-        target: brightnessControl
-        property: "isBrightnessAvailable"
-        value: sbControl.isBrightnessAvailable
+    Connections {
+        target: sbControl
     }
 }

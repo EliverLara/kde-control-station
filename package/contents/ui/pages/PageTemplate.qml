@@ -23,6 +23,7 @@ Lib.Card {
     clip: true
 
     property string sectionTitle
+    property bool customHeader: false
 
     default property alias content: dataContainer.data
 
@@ -54,7 +55,8 @@ Lib.Card {
             id:headerActions
 
             Layout.fillWidth: true
-
+            visible: !customHeader
+            z: page.z+1
             ToolButton {
                 Layout.preferredHeight: root.largeFontSize * 2.5
                 icon.name: "arrow-left"
@@ -78,7 +80,7 @@ Lib.Card {
 
         KSvg.SvgItem {
             id: separatorLine
-
+            visible: !customHeader
             z: 4
             elementId: "horizontal-line"
             Layout.fillWidth: true

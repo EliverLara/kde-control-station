@@ -16,55 +16,16 @@ Lib.Card {
     visible: root.showMediaPlayer
     Layout.fillWidth: true
     Layout.preferredHeight: root.sectionHeight/2
+    
+    MouseArea {
+        id: mouseArea
+        anchors.fill: parent
+        hoverEnabled: true
 
-    // BEGIN model properties
-    readonly property string track: mpris2Model.currentPlayer?.track ?? ""
-    readonly property string artist: mpris2Model.currentPlayer?.artist ?? ""
-    readonly property string album: mpris2Model.currentPlayer?.album ?? ""
-    readonly property string albumArt: mpris2Model.currentPlayer?.artUrl ?? ""
-    readonly property string identity: mpris2Model.currentPlayer?.identity ?? ""
-    readonly property bool canControl: mpris2Model.currentPlayer?.canControl ?? false
-    readonly property bool canGoPrevious: mpris2Model.currentPlayer?.canGoPrevious ?? false
-    readonly property bool canGoNext: mpris2Model.currentPlayer?.canGoNext ?? false
-    readonly property bool canPlay: mpris2Model.currentPlayer?.canPlay ?? false
-    readonly property bool canPause: mpris2Model.currentPlayer?.canPause ?? false
-    readonly property bool canStop: mpris2Model.currentPlayer?.canStop ?? false
-    readonly property int playbackStatus: mpris2Model.currentPlayer?.playbackStatus ?? 0
-    readonly property bool isPlaying: playbackStatus === Mpris.PlaybackStatus.Playing
-    readonly property bool canRaise: mpris2Model.currentPlayer?.canRaise ?? false
-    readonly property bool canQuit: mpris2Model.currentPlayer?.canQuit ?? false
-    readonly property int shuffle: mpris2Model.currentPlayer?.shuffle ?? 0
-    readonly property int loopStatus: mpris2Model.currentPlayer?.loopStatus ?? 0
-
-    Mpris.Mpris2Model {
-        id: mpris2Model
+        onClicked: {
+            mediaPlayerPage.toggleSection()
+        }
     }
-
-    function previous() {
-        mpris2Model.currentPlayer.Previous();
-    }
-    function next() {
-        mpris2Model.currentPlayer.Next();
-    }
-    function play() {
-        mpris2Model.currentPlayer.Play();
-    }
-    function pause() {
-        mpris2Model.currentPlayer.Pause();
-    }
-    function togglePlaying() {
-        mpris2Model.currentPlayer.PlayPause();
-    }
-    function stop() {
-        mpris2Model.currentPlayer.Stop();
-    }
-    function quit() {
-        mpris2Model.currentPlayer.Quit();
-    }
-    function raise() {
-        mpris2Model.currentPlayer.Raise();
-    }
-
 
     RowLayout {
         anchors.fill: parent
@@ -73,13 +34,13 @@ Lib.Card {
         Image {
             id: audioThumb
             fillMode: Image.PreserveAspectCrop
-            source: mediaPlayer.albumArt || "../../assets/music.svg"
+            source: mediaPlayerPage.albumArt || "../../assets/music.svg"
             Layout.fillHeight: true
             Layout.preferredWidth: height
-            enabled: track || (mediaPlayer.playbackStatus > Mpris.PlaybackStatus.Stopped) ? true : false
+            enabled: mediaPlayerPage.track || (mediaPlayerPage.playbackStatus > Mpris.PlaybackStatus.Stopped) ? true : false
 
             ColorOverlay {
-                visible: !mediaPlayer.albumArt && audioThumb.enabled
+                visible: !mediaPlayerPage.albumArt && audioThumb.enabled
                 anchors.fill: audioThumb
                 source: audioThumb
                 color: Kirigami.Theme.textColor
@@ -97,33 +58,32 @@ Lib.Card {
                 font.capitalization: Font.Capitalize
                 font.weight: Font.Bold
                 font.pixelSize: root.largeFontSize
-                enabled: track || (mediaPlayer.playbackStatus > Mpris.PlaybackStatus.Stopped) ? true : false
-                //horizontalAlignment: Text.AlignHCenter
+                enabled: mediaPlayerPage.track || (mediaPlayerPage.playbackStatus > Mpris.PlaybackStatus.Stopped) ? true : false
                 elide: Text.ElideRight
-                text: track ? track : (mediaPlayer.playbackStatus > Mpris.PlaybackStatus.Stopped) ? i18n("No title") : i18n("No media playing")
+                text: mediaPlayerPage.track ? mediaPlayerPage.track : (mediaPlayerPage.playbackStatus > Mpris.PlaybackStatus.Stopped) ? i18n("No title") : i18n("No media playing")
             }
             PlasmaComponents.Label {
                 id: audioArtist
                 Layout.fillWidth: true
                 font.pixelSize: root.mediumFontSize
-               // horizontalAlignment: Text.AlignHCenter
-                text: artist
+                text: mediaPlayerPage.artist
+                elide: Text.ElideRight
             }
         }
         RowLayout {
             id: audioControls
             Layout.alignment: Qt.AlignRight
-
+            Layout.fillWidth: true
 
             PlasmaComponents.ToolButton {
                 id: previousButton
                 Layout.preferredHeight: mediaNameWrapper.implicitHeight
                 Layout.preferredWidth: height
                 icon.name: "media-skip-backward"
-                enabled: mediaPlayer.canGoPrevious
+                enabled: mediaPlayerPage.canGoPrevious
                 onClicked: {
                     //seekSlider.value = 0    // Let the media start from beginning. Bug 362473
-                    mediaPlayer.previous()
+                    mediaPlayerPage.previous()
                 }
             }
 
@@ -134,10 +94,10 @@ Lib.Card {
                 Layout.preferredWidth: height
 
                 Layout.alignment: Qt.AlignVCenter
-                enabled: mediaPlayer.isPlaying ? mediaPlayer.canPause : mediaPlayer.canPlay
-                icon.name: mediaPlayer.isPlaying ? "media-playback-pause" : "media-playback-start"
+                enabled: mediaPlayerPage.isPlaying ? mediaPlayerPage.canPause : mediaPlayerPage.canPlay
+                icon.name: mediaPlayerPage.isPlaying ? "media-playback-pause" : "media-playback-start"
 
-                onClicked: mediaPlayer.togglePlaying()
+                onClicked: mediaPlayerPage.togglePlaying()
             }
 
 
@@ -146,12 +106,14 @@ Lib.Card {
                 Layout.preferredHeight: mediaNameWrapper.implicitHeight
                 Layout.preferredWidth: height
                 icon.name: "media-skip-forward"
-                enabled: mediaPlayer.canGoNext
+                enabled: mediaPlayerPage.canGoNext
                 onClicked: {
                     //seekSlider.value = 0    // Let the media start from beginning. Bug 362473
-                    mediaPlayer.next()
+                    mediaPlayerPage.next()
                 }
             }
         }
     }
+
+
 }

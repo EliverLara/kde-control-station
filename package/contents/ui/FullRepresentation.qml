@@ -53,6 +53,11 @@ Item {
         id: batteryPage
     }
 
+    // Media player Page
+    Pages.MediaPlayerPage {
+        id: mediaPlayerPage
+    }
+
     // Main wrapper
     ColumnLayout {
         id: wrapper

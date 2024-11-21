@@ -58,6 +58,11 @@ Item {
         id: mediaPlayerPage
     }
 
+    // Brightness control Page
+    Pages.BrightnessControlPage {
+        id: brightnessControlPage
+    }
+
     // Main wrapper
     ColumnLayout {
         id: wrapper

@@ -23,6 +23,13 @@ Card {
     property int from: 0
     property int to: 100
 
+    MouseArea {
+        id: mouseArea
+        anchors.fill: parent
+        hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
+        onClicked: sliderComp.togglePage()
+    }
 
     ColumnLayout {
         anchors.fill: parent

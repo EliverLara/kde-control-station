@@ -14,7 +14,8 @@ Lib.Card {
     id: battery
 
     Layout.fillWidth: true
-    Layout.preferredHeight: root.sectionHeight/3.5
+    Layout.preferredHeight: root.sectionHeight/3.3
+    smallMargins: true
 
     property var battery
 

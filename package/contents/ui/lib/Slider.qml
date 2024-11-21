@@ -35,11 +35,12 @@ Card {
         anchors.fill: parent
         anchors.margins: root.largeSpacing
         clip: true
+        spacing: 1
 
         RowLayout {
             Layout.fillHeight: true
             Layout.fillWidth: true
-            spacing: root.smallSpacing
+            spacing: 1
 
             PlasmaComponents.Label {
                 id: title
@@ -69,7 +70,7 @@ Card {
         RowLayout {
             Layout.fillHeight: true
             Layout.fillWidth: true
-            spacing: root.smallSpacing
+            spacing: 0
 
             Kirigami.Icon {
                 id: icon
@@ -77,6 +78,7 @@ Card {
                 visible: !sliderComp.useIconButton
                 Layout.preferredHeight: root.largeFontSize*2
                 Layout.preferredWidth: Layout.preferredHeight
+                Layout.margins: 0
             }
             
             PlasmaComponents2.ToolButton {
@@ -91,6 +93,7 @@ Card {
             PlasmaComponents.Slider {
                 id: slider
                 Layout.fillWidth: true
+                Layout.margins: 0
                 from: sliderComp.from
                 to: sliderComp.to
                 stepSize: 2

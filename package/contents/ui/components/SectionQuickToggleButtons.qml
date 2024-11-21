@@ -15,7 +15,7 @@ Lib.Card {
     id: sectionQuickToggleButtons
     Layout.fillWidth: true
     Layout.fillHeight: true
-    
+    isContainer: true
     // NETWORK
     property var network: network
     Network {
@@ -29,15 +29,19 @@ Lib.Card {
     ColumnLayout {
         id: buttonsColumn
         anchors.fill: parent
-        anchors.margins: root.smallSpacing
-        spacing:  root.smallSpacing
+        anchors.margins: 1
+        spacing: 1
 
         RowLayout {
+            anchors.margins: 1
+            spacing: 1
             NetworkBtn{}
             BluetoothBtn{}
         }
 
         RowLayout {
+            anchors.margins: 1
+            spacing: 1
             DndButton{}
             KDEConnect{}
         }

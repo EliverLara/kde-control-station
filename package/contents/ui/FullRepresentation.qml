@@ -68,12 +68,14 @@ Item {
         id: wrapper
 
         anchors.fill: parent
-        spacing: root.itemSpacing
+        anchors.margins: 1
+        spacing: 1
 
         RowLayout {
             id: header
-
+            spacing: 1
             Layout.fillWidth: true
+            anchors.margins: 1
 
             Components.UserAvatar{}
             Components.Battery {
@@ -85,7 +87,8 @@ Item {
         RowLayout {
             id: sectionA
 
-            spacing: root.itemSpacing
+            spacing: 1
+            anchors.margins: 1
 
             Layout.preferredHeight: root.sectionHeight
             Layout.maximumHeight: root.sectionHeight

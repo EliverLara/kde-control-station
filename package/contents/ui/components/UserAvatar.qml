@@ -13,7 +13,9 @@ Lib.Card {
     id: useraAvatar
 
     Layout.preferredWidth: (root.fullRepWidth / 3) * 1.9
-    Layout.preferredHeight: root.sectionHeight/3.5
+    Layout.preferredHeight: root.sectionHeight/3.3
+
+    smallMargins: true
 
     KCoreAddons.KUser {
       id: kuser
@@ -40,15 +42,15 @@ Lib.Card {
         }
 
         ColumnLayout {
-
-
+            anchors.margins: 1
+            spacing: 1
             PlasmaComponents.Label {
                 id: userName
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.margins: root.smallSpacing
                 text: kuser.fullName // i18n("%1@%2", kuser.loginName, kuser.host)
-                font.pixelSize:  root.largeFontSize + 2
+                font.pixelSize:  root.mediumFontSize + 2
                 font.weight: Font.Bold
                 horizontalAlignment:  Qt.AlignLeft
                 verticalAlignment: Qt.AlignVCenter
@@ -61,7 +63,7 @@ Lib.Card {
                 Layout.fillWidth: true
                 Layout.margins: root.smallSpacing
                 text: i18n("%1@%2", kuser.loginName, kuser.host)
-                font.pixelSize:  root.mediumFontSize
+                font.pixelSize:  root.smallFontSize + 2
                // font.weight: Font.Bold
                 horizontalAlignment:  Qt.AlignLeft
                 verticalAlignment: Qt.AlignVCenter

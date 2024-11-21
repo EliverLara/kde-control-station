@@ -14,13 +14,13 @@ Lib.Card {
     Layout.preferredHeight: (brightnessSlider.visible && secondaryRow.visible) ?  root.sectionHeight : root.sectionHeight/2
     Layout.alignment: Qt.AlignTop
     visible: brightnessSlider.visible || root.showBrightness || root.showColorSwitcher || root.showNightLight
+    isContainer: true
     // All Buttons
     ColumnLayout {
         id: buttonsColumn
         anchors.fill: parent
-        anchors.margins: root.smallSpacing
-        spacing: root.smallSpacing
-
+        anchors.margins: 1
+        spacing: 1
         BrightnessSlider{
             id: brightnessSlider
         }
@@ -28,6 +28,8 @@ Lib.Card {
         RowLayout {
             id: secondaryRow
             visible: root.showColorSwitcher || root.showNightLight
+            anchors.margins: 1
+            spacing: 1
             NightLight{}
             ColorSchemeSwitcher{}
         }

@@ -23,7 +23,7 @@ msgstr "KDE Kontrollzentrum"
 
 #: ../metadata.json
 msgid "A modern control station for plasma based on the awesome work of prayag2!"
-msgstr ""
+msgstr "Ein modernes Kontrollzentrum für Plasma, basierend auf der großartigen Arbeit von prayag2!"
 
 #: ../contents/config/config.qml ../contents/ui/layouts/components/ControlCenter/LeftColumn.qml
 msgid "Appearance"
@@ -35,7 +35,7 @@ msgstr "Farbschema"
 
 #: ../contents/config/config.qml
 msgid "Support"
-msgstr ""
+msgstr "Unterstützung"
 
 #: ../contents/ui/components/Battery.qml ../contents/ui/pages/components/battery/BatteryItem.qml
 msgctxt "Placeholder is battery percentage"
@@ -104,7 +104,7 @@ msgstr "Herunterfahren"
 
 #: ../contents/ui/components/UserAvatar.qml
 msgid "%1@%2"
-msgstr ""
+msgstr "%1@%2"
 
 #: ../contents/ui/components/Volume.qml
 msgid "Volume"
@@ -116,17 +116,17 @@ msgstr "Bitte wähle eine Farbe"
 
 #: ../contents/ui/config/configAppearance.qml
 msgid "Icon:"
-msgstr "Bild:"
+msgstr "Icon:"
 
 #: ../contents/ui/config/configAppearance.qml
 msgctxt "@item:inmenu Open icon chooser dialog"
 msgid "Choose…"
-msgstr ""
+msgstr "Auswählen…"
 
 #: ../contents/ui/config/configAppearance.qml
 msgctxt "@item:inmenu Reset icon to default"
 msgid "Clear Icon"
-msgstr ""
+msgstr "Icon zurücksetzen"
 
 #: ../contents/ui/config/configAppearance.qml
 msgid "Scale:"
@@ -138,7 +138,7 @@ msgstr "Layout:"
 
 #: ../contents/ui/config/configAppearance.qml
 msgid "KDE Control Station (Default)"
-msgstr "KDE Kontrollzentrum (Standart)"
+msgstr "KDE Kontrollzentrum (Standard)"
 
 #: ../contents/ui/config/configAppearance.qml
 msgid "Control Center"
@@ -150,11 +150,11 @@ msgstr "Flach"
 
 #: ../contents/ui/config/configAppearance.qml
 msgid "Tahoe"
-msgstr ""
+msgstr "Tahoe"
 
 #: ../contents/ui/config/configAppearance.qml
 msgid "Custom"
-msgstr ""
+msgstr "Benutzerdefiniert"
 
 #: ../contents/ui/config/configAppearance.qml
 msgid "General:"
@@ -186,27 +186,27 @@ msgstr "Tasten und Schieberegler aktivieren"
 
 #: ../contents/ui/config/configAppearance.qml
 msgid "Toggle buttons"
-msgstr ""
+msgstr "Schalter"
 
 #: ../contents/ui/config/configAppearance.qml
 msgid "Highlight color: "
-msgstr ""
+msgstr "Akzentfarbe: "
 
 #: ../contents/ui/config/configAppearance.qml
 msgid "Icon color: "
-msgstr ""
+msgstr "Icon Farbe: "
 
 #: ../contents/ui/config/configAppearance.qml
 msgid "Sliders controls style"
-msgstr ""
+msgstr "Stil der Schieberegler"
 
 #: ../contents/ui/config/configAppearance.qml
 msgid "Sliders color: "
-msgstr ""
+msgstr "Farbe der Schieberegler: "
 
 #: ../contents/ui/config/configAppearance.qml
 msgid "Show quick toggle buttons:"
-msgstr "Umschalttasten aktivieren:"
+msgstr "Schalter aktivieren:"
 
 #: ../contents/ui/config/configAppearance.qml
 msgid "Name:"
@@ -234,7 +234,7 @@ msgstr "Dunkler Modus"
 
 #: ../contents/ui/config/configSupport.qml
 msgid "I'd be very thankful if you like to support the development of this applet by donating or by simply spreading the word, TIA! :)"
-msgstr ""
+msgstr "Ich wäre Ihnen sehr dankbar, wenn Sie die Entwicklung dieses Applets durch eine Spende oder einfach durch Weiterempfehlen unterstützen würden, TIA! :)"
 
 #: ../contents/ui/js/funcs.js
 msgid "Disabled"
@@ -953,7 +953,7 @@ msgstr "Herunterfahren"
 
 #: ../contents/ui/pages/SystemSessionActionsPage.qml
 msgid "Hibernate"
-msgstr ""
+msgstr "Standby"
 
 #: ../contents/ui/pages/SystemSessionActionsPage.qml
 msgid "Lock Screen"
@@ -965,7 +965,7 @@ msgstr "Abmelden"
 
 #: ../contents/ui/pages/SystemSessionActionsPage.qml
 msgid "Switch User"
-msgstr ""
+msgstr "Benutzer wechseln"
 
 #: ../contents/ui/pages/VolumePage.qml
 msgid "Audio Volume"

@@ -15,7 +15,7 @@ Item {
     Layout.fillHeight: true
     Layout.fillWidth: true
 
-    property var mainScreen
+    property var screenBrightnessInfo: []
     property bool disableBrightnessUpdate: true
 
     property bool canTogglePage: false
@@ -37,13 +37,12 @@ Item {
     Connections {
         id: displayModelConnections
         target: sbControl.displays
-        property var screenBrightnessInfo: []
 
         function update() {
             const [labelRole, brightnessRole, maxBrightnessRole, displayNameRole] = ["label", "brightness", "maxBrightness", "displayName"].map(
                 (roleName) => target.KItemModels.KRoleNames.role(roleName));
 
-            screenBrightnessInfo = [...Array(target.rowCount()).keys()].map((i) => { // for each display index
+            brightnessControl.screenBrightnessInfo = [...Array(target.rowCount()).keys()].map((i) => { // for each display index
                 const modelIndex = target.index(i, 0);
                 return {
                     displayName: target.data(modelIndex, displayNameRole),
@@ -52,7 +51,6 @@ Item {
                     maxBrightness: target.data(modelIndex, maxBrightnessRole),
                 };
             });
-            brightnessControl.mainScreen = screenBrightnessInfo[0];
             sliderLoader.active = true;
         }
         function onDataChanged() { update(); }
@@ -74,13 +72,10 @@ Item {
     Component {
         id: sliderComponent
         Lib.Slider {
-                        
-            readonly property int brightnessMin: (mainScreen.maxBrightness > 100 ? 1 : 0)
-
             // Slider properties
-            title: mainScreen.label
+            title: "Brightness"
             source: "brightness-high"
-            secondaryTitle: Math.round((mainScreen.brightness / mainScreen.maxBrightness)*100) + "%"
+            secondaryTitle: Math.round(value) + "%"
 
             canTogglePage: brightnessControl.canTogglePage
             glassEffect: brightnessControl.glassEffect
@@ -93,11 +88,15 @@ Item {
             flat: root.brightness_widget_flat || brightnessControl.flat // bind to Lib.Card property
             
             from: 0
-            to: mainScreen.maxBrightness
-            value: mainScreen.brightness
+            to: 100
+            value: screenBrightnessInfo.map(screen => screen.brightness).reduce((a,b) => a + b, 0) / screenBrightnessInfo.length
             
             onMoved: {
-                sbControl.setBrightness(mainScreen.displayName, Math.max(brightnessMin, Math.min(mainScreen.maxBrightness, value))) ;
+                let perc = value / 100;
+                screenBrightnessInfo.forEach((screen) => {
+                  let minBrightness = Number(screen.maxBrightness > 100);
+                  sbControl.setBrightness(screen.displayName, Math.max(minBrightness, perc * screen.maxBrightness));
+                })
             }
 
             onTogglePage: {

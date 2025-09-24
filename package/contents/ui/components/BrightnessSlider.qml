@@ -75,7 +75,7 @@ Item {
             // Slider properties
             title: "Brightness"
             source: "brightness-high"
-            secondaryTitle: Math.round((value / brightnessMin)*100) + "%"
+            secondaryTitle: Math.round(value) + "%"
 
             canTogglePage: brightnessControl.canTogglePage
             glassEffect: brightnessControl.glassEffect
@@ -89,13 +89,13 @@ Item {
             
             from: 0
             to: 100
-            value: screenBrightnessInfo[0].brightness
+            value: screenBrightnessInfo.map(screen => screen.brightness).reduce((a,b) => a + b, 0) / screenBrightnessInfo.length
             
             onMoved: {
                 let perc = value / 100;
                 screenBrightnessInfo.forEach((screen) => {
                   let minBrightness = Number(screen.maxBrightness > 100);
-                  sbControl.setBrightness(screen.displayName, Math.max(minBrightness, perc * screen.maxBrightness)));
+                  sbControl.setBrightness(screen.displayName, Math.max(minBrightness, perc * screen.maxBrightness));
                 })
             }
 

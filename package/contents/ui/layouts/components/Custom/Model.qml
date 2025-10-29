@@ -18,6 +18,7 @@ Item {
         "nightlight": 2,
         "kdeconnect": 2,
         "cmd": 2,
+        "togglebtn": 2,
         "screenshot": 2,
         "media": 4,
         "volume": 4,
@@ -34,6 +35,7 @@ Item {
         "nightlight": 1,
         "kdeconnect": 1,
         "cmd": 1,
+        "togglebtn": 1,
         "screenshot": 1,
         "media": 2,
         "volume": 2,
@@ -63,6 +65,54 @@ Item {
     function add(item) {
         widgetsModel.push(item);
         main.modelUpdated();
+    }
+
+    // Migration function to add missing properties to existing widgets
+    function migrateWidgets() {
+        for (var i = 0; i < widgetsModel.length; i++) {
+            var widget = widgetsModel[i];
+            
+            // Migrate toggle buttons to add commandStatus if missing
+            if (widget.name === "togglebtn") {
+                if (!widget.props.hasOwnProperty("commandStatus")) {
+                    widget.props.commandStatus = "echo 'false'";
+                    
+                    // Also add the action for the UI
+                    var hasStatusAction = false;
+                    for (var j = 0; j < widget.actions.length; j++) {
+                        if (widget.actions[j].changes === "commandStatus") {
+                            hasStatusAction = true;
+                            break;
+                        }
+                    }
+                    
+                    if (!hasStatusAction) {
+                        // Find the position to insert (after commandOff, before Icon)
+                        var insertPos = -1;
+                        for (var k = 0; k < widget.actions.length; k++) {
+                            if (widget.actions[k].changes === "commandOff") {
+                                insertPos = k + 1;
+                                break;
+                            }
+                        }
+                        
+                        if (insertPos !== -1) {
+                            widget.actions.splice(insertPos, 0, {
+                                name: "Command (Check Status)",
+                                checkable: false,
+                                value: "echo 'false'",
+                                changes: "commandStatus",
+                                valueType: "entry"
+                            });
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    Component.onCompleted: {
+        migrateWidgets();
     }
 
 
@@ -771,6 +821,104 @@ Item {
             ]
         },
 
+        {
+            name: "togglebtn",
+            displayName: "Toggle Button",
+            colSpan: 1,
+            componentUrl: "../components/ToggleButton.qml",
+            props: {
+                flat: false,
+                roundedWidget: false,
+                isLongButton: false,
+                commandOn: "touch /tmp/toggle_state",
+                commandOff: "rm -f /tmp/toggle_state",
+                commandStatus: "[ -f /tmp/toggle_state ] && echo 'true' || echo 'false'",
+                title: "toggle",
+                showTitle: true,
+                icon: "system-run-symbolic",
+                isActivated: false
+            },
+
+            actions: [
+
+                {
+                    name: "Long button",
+                    checkable: true,
+                    value: false,
+                    changes: "isLongButton",
+                    valueType: "size"
+                },
+
+                {
+                    name: "Flat",
+                    checkable: true,
+                    value: false,
+                    changes: "flat",
+                    valueType: "bool"
+                },
+                {
+                    name: "Round widget",
+                    checkable: true,
+                    value: false,
+                    changes: "roundedWidget",
+                    valueType: "bool"
+                },
+                {
+                    name: "Show title",
+                    checkable: true,
+                    value: true,
+                    changes: "showTitle",
+                    valueType: "bool"
+                },
+                {
+                    valueType: "separator"
+                },
+                {
+                    name: "title",
+                    checkable: false,
+                    value: "toggle",
+                    changes: "title",
+                    valueType: "entry"
+                },
+                {
+                    name: "Command (Activate)",
+                    checkable: false,
+                    value: "touch /tmp/toggle_state",
+                    changes: "commandOn",
+                    valueType: "entry"
+                },
+                {
+                    name: "Command (Deactivate)",
+                    checkable: false,
+                    value: "rm -f /tmp/toggle_state",
+                    changes: "commandOff",
+                    valueType: "entry"
+                },
+                {
+                    name: "Command (Check Status)",
+                    checkable: false,
+                    value: "[ -f /tmp/toggle_state ] && echo 'true' || echo 'false'",
+                    changes: "commandStatus",
+                    valueType: "entry"
+                },
+                {
+                    name: "Icon",
+                    checkable: false,
+                    value: "system-run-symbolic",
+                    changes: "icon",
+                    valueType: "icon"
+                },
+                {
+                    valueType: "separator"
+                },
+                {
+                    name: "Save",
+                    checkable: false,
+                    valueType: "save_action"
+                }
+            ]
+        },
+
     ]
 
     property var availableWidgetsModel: [
@@ -1439,6 +1587,104 @@ Item {
                     valueType: "bool"
                 }
 
+            ]
+        },
+
+        {
+            name: "togglebtn",
+            displayName: "Toggle Button",
+            colSpan: 1,
+            componentUrl: "../components/ToggleButton.qml",
+            props: {
+                flat: false,
+                roundedWidget: false,
+                isLongButton: false,
+                commandOn: "touch /tmp/toggle_state",
+                commandOff: "rm -f /tmp/toggle_state",
+                commandStatus: "[ -f /tmp/toggle_state ] && echo 'true' || echo 'false'",
+                title: "toggle",
+                showTitle: true,
+                icon: "system-run-symbolic",
+                isActivated: false
+            },
+
+            actions: [
+
+                {
+                    name: "Long button",
+                    checkable: true,
+                    value: false,
+                    changes: "isLongButton",
+                    valueType: "size"
+                },
+
+                {
+                    name: "Flat",
+                    checkable: true,
+                    value: false,
+                    changes: "flat",
+                    valueType: "bool"
+                },
+                {
+                    name: "Round widget",
+                    checkable: true,
+                    value: false,
+                    changes: "roundedWidget",
+                    valueType: "bool"
+                },
+                {
+                    name: "Show title",
+                    checkable: true,
+                    value: true,
+                    changes: "showTitle",
+                    valueType: "bool"
+                },
+                {
+                    valueType: "separator"
+                },
+                {
+                    name: "title",
+                    checkable: false,
+                    value: "toggle",
+                    changes: "title",
+                    valueType: "entry"
+                },
+                {
+                    name: "Command (Activate)",
+                    checkable: false,
+                    value: "touch /tmp/toggle_state",
+                    changes: "commandOn",
+                    valueType: "entry"
+                },
+                {
+                    name: "Command (Deactivate)",
+                    checkable: false,
+                    value: "rm -f /tmp/toggle_state",
+                    changes: "commandOff",
+                    valueType: "entry"
+                },
+                {
+                    name: "Command (Check Status)",
+                    checkable: false,
+                    value: "[ -f /tmp/toggle_state ] && echo 'true' || echo 'false'",
+                    changes: "commandStatus",
+                    valueType: "entry"
+                },
+                {
+                    name: "Icon",
+                    checkable: false,
+                    value: "system-run-symbolic",
+                    changes: "icon",
+                    valueType: "icon"
+                },
+                {
+                    valueType: "separator"
+                },
+                {
+                    name: "Save",
+                    checkable: false,
+                    valueType: "save_action"
+                }
             ]
         },
 

@@ -1,0 +1,1018 @@
+# Translation of KdeControlStation in Chinese Traditional / 中文（繁體）
+# Copyright (C) 2026
+# This file is distributed under the same license as the KdeControlStation package.
+# wmk965 <wmk153024@gmail.com>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: KdeControlStation\n"
+"Report-Msgid-Bugs-To: https://github.com/EliverLara/kde-control-station/tree/plasma6\n"
+"POT-Creation-Date: 2026-02-20 15:03+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: ../metadata.json
+msgid "KDE control station"
+msgstr "KDE 控制中心"
+
+#: ../metadata.json
+msgid "A modern control station for plasma based on the awesome work of prayag2!"
+msgstr "基於 prayag2 傑作的現代化 Plasma 控制中心"
+
+#: ../contents/config/config.qml ../contents/ui/layouts/components/ControlCenter/LeftColumn.qml
+msgid "Appearance"
+msgstr "外觀"
+
+#: ../contents/config/config.qml
+msgid "Color schemes"
+msgstr "配色方案"
+
+#: ../contents/config/config.qml ../contents/ui/components/ScreenshotBtn.qml
+msgid "Screenshot"
+msgstr "截圖"
+
+#: ../contents/config/config.qml
+msgid "Support"
+msgstr "支援"
+
+#: ../contents/ui/components/Battery.qml ../contents/ui/pages/components/battery/BatteryItem.qml
+msgctxt "Placeholder is battery percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: ../contents/ui/components/ColorSchemeSwitcher.qml
+msgid "Dark Theme"
+msgstr "暗色主題"
+
+#: ../contents/ui/components/DndButton.qml
+msgid "Do Not Disturb"
+msgstr "請勿打擾"
+
+#: ../contents/ui/components/KDEConnect.qml
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#: ../contents/ui/components/MediaPlayer.qml ../contents/ui/pages/components/mediaPlayer/AlbumArtStackView.qml
+msgid "No title"
+msgstr "無標題"
+
+#: ../contents/ui/components/MediaPlayer.qml ../contents/ui/pages/components/mediaPlayer/AlbumArtStackView.qml
+msgid "No media playing"
+msgstr "沒有正在播放的媒體"
+
+#: ../contents/ui/components/NetworkBtn.qml
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: ../contents/ui/components/NetworkBtn.qml
+msgid "Airplane mode"
+msgstr "飛航模式"
+
+#: ../contents/ui/components/NetworkBtn.qml ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "Network"
+msgstr "網路"
+
+#: ../contents/ui/components/NightLight.qml ../contents/ui/pages/NightLightPage.qml
+msgid "Night Light"
+msgstr "夜光"
+
+#: ../contents/ui/components/RedShift.qml
+msgid "Night Color"
+msgstr "夜間色彩"
+
+#: ../contents/ui/components/SystemActions.qml
+msgid "Power Off"
+msgstr "關機"
+
+#: ../contents/ui/components/UserAvatar.qml
+msgid "%1@%2"
+msgstr "%1@%2"
+
+#: ../contents/ui/components/Volume.qml
+msgid "Volume"
+msgstr "音量"
+
+#: ../contents/ui/config/components/ColorChooser.qml
+msgid "Please choose a color"
+msgstr "請選擇顏色"
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Icon:"
+msgstr "圖示："
+
+#: ../contents/ui/config/configAppearance.qml
+msgctxt "@item:inmenu Open icon chooser dialog"
+msgid "Choose…"
+msgstr "選擇…"
+
+#: ../contents/ui/config/configAppearance.qml
+msgctxt "@item:inmenu Reset icon to default"
+msgid "Clear Icon"
+msgstr "清除圖示"
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Scale:"
+msgstr "縮放："
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Layout:"
+msgstr "版面配置："
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "KDE Control Station (Default)"
+msgstr "KDE 控制中心 (預設佈局)"
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Control Center"
+msgstr "控制中心"
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Flat"
+msgstr "扁平佈局"
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Tahoe"
+msgstr "MacOS Tahoe 佈局"
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Custom"
+msgstr "自訂佈局"
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "General:"
+msgstr "一般："
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Show volume/brightness percentage"
+msgstr "顯示音量/亮度百分比"
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Enable animations (Experimental)"
+msgstr "啟用動畫（實驗性）"
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Enable transparency"
+msgstr "啟用背景透明"
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Transparency level of widgets (%1%):"
+msgstr "元件透明度 (%1%)："
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Show borders aroud components"
+msgstr "顯示元件邊框"
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Toggle buttons and sliders"
+msgstr "切換開關與滑桿"
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Toggle buttons"
+msgstr "切換開關"
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Highlight color: "
+msgstr "強調色："
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Icon color: "
+msgstr "圖示顏色："
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Sliders controls style"
+msgstr "滑桿控制風格"
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Sliders color: "
+msgstr "滑桿顏色："
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Show quick toggle buttons:"
+msgstr "顯示快速切換按鈕："
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Name:"
+msgstr "名稱："
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Command:"
+msgstr "指令："
+
+#: ../contents/ui/config/configAppearance.qml
+msgid "Show other components:"
+msgstr "顯示其他元件："
+
+#: ../contents/ui/config/configColorscheme.qml
+msgid "Change global theme instead of just changing color scheme"
+msgstr "變更全域主題而不僅是配色方案"
+
+#: ../contents/ui/config/configColorscheme.qml
+msgid "Light color"
+msgstr "亮色配置"
+
+#: ../contents/ui/config/configColorscheme.qml
+msgid "Dark color"
+msgstr "暗色配置"
+
+#: ../contents/ui/config/configScreenshot.qml
+msgid "Hide widget before screenshotting:"
+msgstr "截圖前隱藏元件："
+
+#: ../contents/ui/config/configScreenshot.qml
+msgid "Screenshot Command (default is 'spectacle'):"
+msgstr "截圖指令（預設為 'spectacle'）："
+
+#: ../contents/ui/config/configSupport.qml
+msgid "I'd be very thankful if you like to support the development of this applet by donating or by simply spreading the word, TIA! :)"
+msgstr "如果您願意透過贊助或分享來支援本小程式的開發，我將不勝感激。預先感謝！ :)"
+
+#: ../contents/ui/js/funcs.js
+msgid "Disabled"
+msgstr "已停用"
+
+#: ../contents/ui/js/funcs.js
+msgid "Unavailable"
+msgstr "無法使用"
+
+#: ../contents/ui/js/funcs.js
+msgid "Offline"
+msgstr "離線"
+
+#: ../contents/ui/js/funcs.js
+msgid "Not Connected"
+msgstr "未連線"
+
+#: ../contents/ui/js/funcs.js
+msgid "On"
+msgstr "開啟"
+
+#: ../contents/ui/js/funcs.js ../contents/ui/pages/components/bluetooth/DeviceItem.qml ../contents/ui/pages/components/network/ConnectionItem.qml
+msgid "Connected"
+msgstr "已連線"
+
+#: ../contents/ui/js/funcs.js
+msgid "Disconnected"
+msgstr "已斷線"
+
+#: ../contents/ui/layouts/components/ControlCenter/LeftColumn.qml ../contents/ui/pages/BluetoothPage.qml
+msgid "Bluetooth"
+msgstr "藍牙"
+
+#: ../contents/ui/pages/BatteryPage.qml
+msgid "The battery applet has enabled suppressing sleep and screen locking"
+msgstr "此電池小程式已阻止睡眠和螢幕鎖定"
+
+#: ../contents/ui/pages/BatteryPage.qml
+msgid "Power and Battery"
+msgstr "電源與電池"
+
+#: ../contents/ui/pages/BatteryPage.qml ../contents/ui/pages/components/battery/PowerManagementItem.qml ../contents/ui/pages/components/battery/PowerProfileItem.qml
+msgid "Power Management"
+msgstr "電源管理"
+
+#: ../contents/ui/pages/BluetoothPage.qml
+msgid "Enable"
+msgstr "啟用"
+
+#: ../contents/ui/pages/BluetoothPage.qml
+msgid "Pair Device…"
+msgstr "配對裝置…"
+
+#: ../contents/ui/pages/BluetoothPage.qml
+msgid "No Bluetooth adapters available"
+msgstr "沒有可用的藍牙介面卡"
+
+#: ../contents/ui/pages/BluetoothPage.qml
+msgid "Bluetooth is disabled"
+msgstr "藍牙已停用"
+
+#: ../contents/ui/pages/BluetoothPage.qml
+msgid "No devices paired"
+msgstr "沒有已配對的裝置"
+
+#: ../contents/ui/pages/BrightnessControlPage.qml
+msgid "Brightness Control"
+msgstr "亮度控制"
+
+#: ../contents/ui/pages/BrightnessControlPage.qml
+msgid "Keyboard Backlight"
+msgstr "鍵盤背光"
+
+#: ../contents/ui/pages/BrightnessControlPage.qml
+msgid "Keyboard Color"
+msgstr "鍵盤顏色"
+
+#: ../contents/ui/pages/MediaPlayerPage.qml
+msgid "Media Player"
+msgstr "媒體播放器"
+
+#: ../contents/ui/pages/NetworkPage.qml
+msgid "Networks"
+msgstr "網路"
+
+#: ../contents/ui/pages/NetworkPage.qml
+msgctxt "@action:button"
+msgid "Return to Network Connections"
+msgstr "返回網路連線"
+
+#: ../contents/ui/pages/NightLightPage.qml
+msgid "Night light status"
+msgstr "夜光狀態"
+
+#: ../contents/ui/pages/NightLightPage.qml
+msgctxt "Night light status"
+msgid "Suspended"
+msgstr "已暫停"
+
+#: ../contents/ui/pages/NightLightPage.qml
+msgctxt "Night light status"
+msgid "Unavailable"
+msgstr "無法使用"
+
+#: ../contents/ui/pages/NightLightPage.qml
+msgctxt "Night light status"
+msgid "Not enabled"
+msgstr "未啟用"
+
+#: ../contents/ui/pages/NightLightPage.qml
+msgctxt "Night light status"
+msgid "Not running"
+msgstr "未執行"
+
+#: ../contents/ui/pages/NightLightPage.qml
+msgctxt "Night light status"
+msgid "On"
+msgstr "開啟"
+
+#: ../contents/ui/pages/NightLightPage.qml
+msgctxt "Night light phase"
+msgid "Morning Transition"
+msgstr "清晨過渡"
+
+#: ../contents/ui/pages/NightLightPage.qml
+msgctxt "Night light phase"
+msgid "Day"
+msgstr "日間"
+
+#: ../contents/ui/pages/NightLightPage.qml
+msgctxt "Night light phase"
+msgid "Evening Transition"
+msgstr "傍晚過渡"
+
+#: ../contents/ui/pages/NightLightPage.qml
+msgctxt "Night light phase"
+msgid "Night"
+msgstr "夜間"
+
+#: ../contents/ui/pages/NightLightPage.qml
+msgctxt "Placeholder is screen color temperature"
+msgid "%1K"
+msgstr "%1K"
+
+#: ../contents/ui/pages/NightLightPage.qml
+msgctxt "@action:button Night Light"
+msgid "Suspend"
+msgstr "暫停"
+
+#: ../contents/ui/pages/NightLightPage.qml ../contents/ui/pages/components/network/ConnectionItem.qml
+msgid "Configure…"
+msgstr "設定…"
+
+#: ../contents/ui/pages/NightLightPage.qml
+msgid "Enable and Configure…"
+msgstr "啟用並設定…"
+
+#: ../contents/ui/pages/NightLightPage.qml
+msgctxt "Label for a time"
+msgid "Transition to day complete by:"
+msgstr "日間過渡完成於："
+
+#: ../contents/ui/pages/NightLightPage.qml
+msgctxt "Label for a time"
+msgid "Transition to night scheduled for:"
+msgstr "夜間過渡開始於："
+
+#: ../contents/ui/pages/NightLightPage.qml
+msgctxt "Label for a time"
+msgid "Transition to night complete by:"
+msgstr "夜間過渡完成於："
+
+#: ../contents/ui/pages/NightLightPage.qml
+msgctxt "Label for a time"
+msgid "Transition to day scheduled for:"
+msgstr "日間過渡開始於："
+
+#: ../contents/ui/pages/SystemSessionActionsPage.qml
+msgid "Session Actions"
+msgstr "工作階段操作"
+
+#: ../contents/ui/pages/SystemSessionActionsPage.qml
+msgid "Suspend"
+msgstr "睡眠"
+
+#: ../contents/ui/pages/SystemSessionActionsPage.qml
+msgid "Restart"
+msgstr "重新啟動"
+
+#: ../contents/ui/pages/SystemSessionActionsPage.qml
+msgid "Shutdown"
+msgstr "關機"
+
+#: ../contents/ui/pages/SystemSessionActionsPage.qml
+msgid "Hibernate"
+msgstr "休眠"
+
+#: ../contents/ui/pages/SystemSessionActionsPage.qml
+msgid "Lock Screen"
+msgstr "鎖定螢幕"
+
+#: ../contents/ui/pages/SystemSessionActionsPage.qml
+msgid "Log Out"
+msgstr "登出"
+
+#: ../contents/ui/pages/SystemSessionActionsPage.qml
+msgid "Switch User"
+msgstr "切換使用者"
+
+#: ../contents/ui/pages/VolumePage.qml
+msgid "Audio Volume"
+msgstr "音量"
+
+#: ../contents/ui/pages/VolumePage.qml
+msgid "No output or input devices found"
+msgstr "找不到輸出或輸入裝置"
+
+#: ../contents/ui/pages/VolumePage.qml
+msgid "Device name not found"
+msgstr "找不到裝置名稱"
+
+#: ../contents/ui/pages/VolumePage.qml
+msgid "Devices"
+msgstr "裝置"
+
+#: ../contents/ui/pages/VolumePage.qml
+msgid "Applications"
+msgstr "應用程式"
+
+#: ../contents/ui/pages/VolumePage.qml
+msgid "Force mute all playback devices"
+msgstr "強制靜音所有播放裝置"
+
+#: ../contents/ui/pages/VolumePage.qml
+msgid "Configure Audio Devices"
+msgstr "設定音訊裝置"
+
+#: ../contents/ui/pages/VolumePage.qml
+msgid "No applications playing or recording audio"
+msgstr "沒有應用程式正在播放或錄製音訊"
+
+#: ../contents/ui/pages/VolumePage.qml
+msgctxt "@info"
+msgid "Prolonged use of this feature will damage the device's speakers. Only use it temporarily to make quiet media audible."
+msgstr "長時間使用此功能會損壞裝置的揚聲器。請僅在需要聽清音量過小的媒體時暫時使用。"
+
+#: ../contents/ui/pages/VolumePage.qml
+msgid "Raise maximum volume"
+msgstr "提高最大音量"
+
+#: ../contents/ui/pages/components/battery/BatteryItem.qml
+msgid "Charging"
+msgstr "充電中"
+
+#: ../contents/ui/pages/components/battery/BatteryItem.qml
+msgid "Discharging"
+msgstr "放電中"
+
+#: ../contents/ui/pages/components/battery/BatteryItem.qml
+msgid "Fully Charged"
+msgstr "已充飽"
+
+#: ../contents/ui/pages/components/battery/BatteryItem.qml
+msgid "Not Charging"
+msgstr "未在充電"
+
+#: ../contents/ui/pages/components/battery/BatteryItem.qml
+msgctxt "Battery is currently not present in the bay"
+msgid "Not present"
+msgstr "未安裝電池"
+
+#: ../contents/ui/pages/components/battery/BatteryItem.qml
+msgid "This battery's health is at only %1% and it should be replaced. Contact the manufacturer."
+msgstr "此電池僅剩 %1% 的健康度，應予以更換。請聯絡製造商。"
+
+#: ../contents/ui/pages/components/battery/BatteryItem.qml
+msgid "Time To Full:"
+msgstr "充飽剩餘時間："
+
+#: ../contents/ui/pages/components/battery/BatteryItem.qml
+msgid "Remaining Time:"
+msgstr "剩餘時間："
+
+#: ../contents/ui/pages/components/battery/BatteryItem.qml
+msgctxt "@info"
+msgid "Estimating…"
+msgstr "估算中…"
+
+#: ../contents/ui/pages/components/battery/BatteryItem.qml
+msgid "Battery Health:"
+msgstr "電池健康度："
+
+#: ../contents/ui/pages/components/battery/BatteryItem.qml
+msgctxt "Placeholder is battery health percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: ../contents/ui/pages/components/battery/BatteryItem.qml
+msgid "Battery is configured to charge up to approximately %1%."
+msgstr "電池已設定為充電至約 %1%。"
+
+#: ../contents/ui/pages/components/battery/PowerManagementItem.qml
+msgctxt "@title:group"
+msgid "Sleep and Screen Locking after Inactivity"
+msgstr "閒置後自動睡眠與鎖定螢幕"
+
+#: ../contents/ui/pages/components/battery/PowerManagementItem.qml
+msgctxt "Sleep and Screen Locking after Inactivity"
+msgid "Blocked"
+msgstr "已阻擋"
+
+#: ../contents/ui/pages/components/battery/PowerManagementItem.qml
+msgctxt "Sleep and Screen Locking after Inactivity"
+msgid "Automatic"
+msgstr "自動"
+
+#: ../contents/ui/pages/components/battery/PowerManagementItem.qml
+msgctxt "@option:check Manually block sleep and screen locking after inactivity"
+msgid "Manually block"
+msgstr "手動阻擋"
+
+#: ../contents/ui/pages/components/battery/PowerManagementItem.qml
+msgid "Failed to unblock automatic sleep and screen locking"
+msgstr "無法取消阻擋自動睡眠與螢幕鎖定"
+
+#: ../contents/ui/pages/components/battery/PowerManagementItem.qml
+msgid "Failed to block automatic sleep and screen locking"
+msgstr "無法阻擋自動睡眠與螢幕鎖定"
+
+#: ../contents/ui/pages/components/battery/PowerManagementItem.qml
+msgctxt "Minimize the length of this string as much as possible"
+msgid "Your laptop is configured not to sleep when closing the lid while an external monitor is connected."
+msgstr "您的筆記型電腦已設定為在外接螢幕時闔上螢幕不進入睡眠。"
+
+#: ../contents/ui/pages/components/battery/PowerManagementItem.qml
+msgid "%1 application is currently blocking sleep and screen locking:"
+msgid_plural "%1 applications are currently blocking sleep and screen locking:"
+msgstr[0] "%1 個應用程式正在阻擋自動睡眠與螢幕鎖定："
+msgstr[1] "%1 個應用程式正在阻擋自動睡眠與螢幕鎖定："
+
+#: ../contents/ui/pages/components/battery/PowerManagementItem.qml
+msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgstr "%1 正在阻擋自動睡眠與螢幕鎖定 (%2)"
+
+#: ../contents/ui/pages/components/battery/PowerManagementItem.qml
+msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
+msgstr "%1 正在阻擋自動睡眠與螢幕鎖定（未知原因）"
+
+#: ../contents/ui/pages/components/battery/PowerManagementItem.qml
+msgid "An application is currently blocking sleep and screen locking (%1)"
+msgstr "一個應用程式正在阻擋自動睡眠與螢幕鎖定 (%1)"
+
+#: ../contents/ui/pages/components/battery/PowerManagementItem.qml
+msgid "An application is currently blocking sleep and screen locking (unknown reason)"
+msgstr "一個應用程式正在阻擋自動睡眠與螢幕鎖定（未知原因）"
+
+#: ../contents/ui/pages/components/battery/PowerManagementItem.qml
+msgctxt "Application name: reason for preventing sleep and screen locking"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: ../contents/ui/pages/components/battery/PowerManagementItem.qml
+msgctxt "Application name: reason for preventing sleep and screen locking"
+msgid "%1: unknown reason"
+msgstr "%1: 未知原因"
+
+#: ../contents/ui/pages/components/battery/PowerManagementItem.qml
+msgctxt "Application name: reason for preventing sleep and screen locking"
+msgid "Unknown application: %1"
+msgstr "未知應用程式: %1"
+
+#: ../contents/ui/pages/components/battery/PowerManagementItem.qml
+msgctxt "Application name: reason for preventing sleep and screen locking"
+msgid "Unknown application: unknown reason"
+msgstr "未知應用程式: 未知原因"
+
+#: ../contents/ui/pages/components/battery/PowerProfileItem.qml
+msgid "Power Save"
+msgstr "省電模式"
+
+#: ../contents/ui/pages/components/battery/PowerProfileItem.qml
+msgid "Balanced"
+msgstr "平衡模式"
+
+#: ../contents/ui/pages/components/battery/PowerProfileItem.qml
+msgid "Performance"
+msgstr "效能模式"
+
+#: ../contents/ui/pages/components/battery/PowerProfileItem.qml
+msgid "Power Profile"
+msgstr "電源設定檔"
+
+#: ../contents/ui/pages/components/battery/PowerProfileItem.qml
+msgctxt "Power profile"
+msgid "Not available"
+msgstr "無法使用"
+
+#: ../contents/ui/pages/components/battery/PowerProfileItem.qml
+msgid "Failed to activate %1 mode"
+msgstr "無法啟用 %1 模式"
+
+#: ../contents/ui/pages/components/battery/PowerProfileItem.qml
+msgid "Performance mode has been disabled to reduce heat generation because the computer has detected that it may be sitting on your lap."
+msgstr "因電腦偵測到可能置於膝上，效能模式已停用以減少熱量產生。"
+
+#: ../contents/ui/pages/components/battery/PowerProfileItem.qml
+msgid "Performance mode is unavailable because the computer is running too hot."
+msgstr "因電腦過熱，效能模式無法使用。"
+
+#: ../contents/ui/pages/components/battery/PowerProfileItem.qml
+msgid "Performance mode is unavailable."
+msgstr "效能模式無法使用。"
+
+#: ../contents/ui/pages/components/battery/PowerProfileItem.qml
+msgid "Performance may be lowered to reduce heat generation because the computer has detected that it may be sitting on your lap."
+msgstr "因電腦偵測到可能置於膝上，效能可能降低以減少熱量產生。"
+
+#: ../contents/ui/pages/components/battery/PowerProfileItem.qml
+msgid "Performance may be reduced because the computer is running too hot."
+msgstr "因電腦過熱，效能可能降低。"
+
+#: ../contents/ui/pages/components/battery/PowerProfileItem.qml
+msgid "Performance may be reduced."
+msgstr "效能可能降低。"
+
+#: ../contents/ui/pages/components/battery/PowerProfileItem.qml
+msgid "One application has requested activating %2:"
+msgid_plural "%1 applications have requested activating %2:"
+msgstr[0] "1 個應用程式已請求啟用 %2："
+msgstr[1] "%1 個應用程式已請求啟用 %2："
+
+#: ../contents/ui/pages/components/battery/PowerProfileItem.qml
+msgctxt "%1 is the name of the application, %2 is the reason provided by it for activating performance mode"
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: ../contents/ui/pages/components/battery/PowerProfileItem.qml
+msgid "Power profiles may be supported on your device.<nl/>Try installing the <command>power-profiles-daemon</command> package using your distribution's package manager and restarting the system."
+msgstr "您的裝置可能支援電源設定檔。<nl/>請嘗試使用發行版的套件管理員安裝 <command>power-profiles-daemon</command> 套件並重新啟動系統。"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml ../contents/ui/pages/components/network/ConnectionItem.qml
+msgid "Disconnect"
+msgstr "斷線"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml ../contents/ui/pages/components/network/ConnectionItem.qml
+msgid "Connect"
+msgstr "連線"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "Browse Files"
+msgstr "瀏覽檔案"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "Send File"
+msgstr "傳送檔案"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml ../contents/ui/pages/components/network/DetailsText.qml
+msgid "Copy"
+msgstr "複製"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "Yes"
+msgstr "是"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "No"
+msgstr "否"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgctxt "@label %1 is human-readable adapter name, %2 is HCI"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "Remote Name"
+msgstr "遠端名稱"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "Address"
+msgstr "位址"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "Paired"
+msgstr "已配對"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "Trusted"
+msgstr "信任"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "Adapter"
+msgstr "介面卡"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "Disconnecting"
+msgstr "正在斷線"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "Connecting"
+msgstr "正在連線"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "Connection failed"
+msgstr "連線失敗"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "Audio device"
+msgstr "音訊裝置"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "Input device"
+msgstr "輸入裝置"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "Phone"
+msgstr "電話"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "File transfer"
+msgstr "檔案傳輸"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "Send file"
+msgstr "傳送檔案"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "Input"
+msgstr "輸入"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "Audio"
+msgstr "音訊"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "Other device"
+msgstr "其他裝置"
+
+#: ../contents/ui/pages/components/bluetooth/DeviceItem.qml
+msgid "%1% Battery"
+msgstr "電量 %1%"
+
+#: ../contents/ui/pages/components/bluetooth/Header.qml
+msgid "Configure Bluetooth"
+msgstr "設定藍牙"
+
+#: ../contents/ui/pages/components/brightness/BrightnessItem.qml
+msgctxt "Backlight on or off"
+msgid "Off"
+msgstr "關閉"
+
+#: ../contents/ui/pages/components/brightness/BrightnessItem.qml
+msgctxt "Brightness level"
+msgid "Low"
+msgstr "低"
+
+#: ../contents/ui/pages/components/brightness/BrightnessItem.qml
+msgctxt "Brightness level"
+msgid "Medium"
+msgstr "中"
+
+#: ../contents/ui/pages/components/brightness/BrightnessItem.qml
+msgctxt "Brightness level"
+msgid "High"
+msgstr "高"
+
+#: ../contents/ui/pages/components/brightness/BrightnessItem.qml
+msgctxt "Backlight on or off"
+msgid "On"
+msgstr "開啟"
+
+#: ../contents/ui/pages/components/brightness/BrightnessItem.qml
+msgctxt "Placeholder is brightness percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: ../contents/ui/pages/components/brightness/BrightnessItem.qml
+msgctxt "Display brightness"
+msgid "Brightness"
+msgstr "亮度"
+
+#: ../contents/ui/pages/components/brightness/BrightnessItem.qml
+msgctxt "Placeholder is display name"
+msgid "Display Brightness - %1"
+msgstr "螢幕亮度 - %1"
+
+#: ../contents/ui/pages/components/brightness/KeyboardColorItem.qml
+msgid "Follow accent color"
+msgstr "跟隨強調色"
+
+#: ../contents/ui/pages/components/mediaPlayer/ExpandedRepresentation.qml
+msgctxt "Remaining time for song e.g -5:42"
+msgid "-%1"
+msgstr "-%1"
+
+#: ../contents/ui/pages/components/mediaPlayer/ExpandedRepresentation.qml
+msgctxt "@action:button"
+msgid "Shuffle"
+msgstr "隨機播放"
+
+#: ../contents/ui/pages/components/mediaPlayer/ExpandedRepresentation.qml
+msgctxt "Play previous track"
+msgid "Previous Track"
+msgstr "上一首"
+
+#: ../contents/ui/pages/components/mediaPlayer/ExpandedRepresentation.qml
+msgctxt "Pause playback"
+msgid "Pause"
+msgstr "暫停"
+
+#: ../contents/ui/pages/components/mediaPlayer/ExpandedRepresentation.qml
+msgctxt "Start playback"
+msgid "Play"
+msgstr "播放"
+
+#: ../contents/ui/pages/components/mediaPlayer/ExpandedRepresentation.qml
+msgctxt "Play next track"
+msgid "Next Track"
+msgstr "下一首"
+
+#: ../contents/ui/pages/components/mediaPlayer/ExpandedRepresentation.qml
+msgid "Repeat Track"
+msgstr "單曲循環"
+
+#: ../contents/ui/pages/components/mediaPlayer/ExpandedRepresentation.qml
+msgid "Repeat"
+msgstr "重複播放"
+
+#: ../contents/ui/pages/components/network/ConnectionItem.qml
+msgid "Show Network's QR Code"
+msgstr "顯示網路 QR Code"
+
+#: ../contents/ui/pages/components/network/ConnectionItem.qml
+msgid "Speed"
+msgstr "速度"
+
+#: ../contents/ui/pages/components/network/ConnectionItem.qml
+msgid "Details"
+msgstr "詳細資訊"
+
+#: ../contents/ui/pages/components/network/ConnectionItem.qml
+msgctxt "@info:tooltip"
+msgid "Current download speed is %1 kibibytes per second; current upload speed is %2 kibibytes per second"
+msgstr "目前下載速度為每秒 %1 KiB；上傳速度為每秒 %2 KiB"
+
+#: ../contents/ui/pages/components/network/ConnectionItem.qml
+msgid "Connected, ⬇ %1/s, ⬆ %2/s"
+msgstr "已連線, ⬇ %1/s, ⬆ %2/s"
+
+#: ../contents/ui/pages/components/network/ConnectionListPage.qml
+msgid "You need to log in to this network"
+msgstr "您需要登入此網路"
+
+#: ../contents/ui/pages/components/network/ConnectionListPage.qml
+msgctxt "@action:button"
+msgid "Log in"
+msgstr "登入"
+
+#: ../contents/ui/pages/components/network/ConnectionListPage.qml
+msgid "Airplane mode is enabled"
+msgstr "飛航模式已啟用"
+
+#: ../contents/ui/pages/components/network/ConnectionListPage.qml
+msgid "Wireless and mobile networks are deactivated"
+msgstr "無線網路與行動網路已停用"
+
+#: ../contents/ui/pages/components/network/ConnectionListPage.qml
+msgid "Wireless is deactivated"
+msgstr "無線網路已停用"
+
+#: ../contents/ui/pages/components/network/ConnectionListPage.qml
+msgid "Mobile network is deactivated"
+msgstr "行動網路已停用"
+
+#: ../contents/ui/pages/components/network/ConnectionListPage.qml
+msgid "No matches"
+msgstr "無相符項目"
+
+#: ../contents/ui/pages/components/network/ConnectionListPage.qml
+msgid "No available connections"
+msgstr "無可用的連線"
+
+#: ../contents/ui/pages/components/network/ShareNetworkQrCodePage.qml
+msgid "Scan this QR code with another device to connect to the \"%1\" network."
+msgstr "使用其他裝置掃描此 QR Code 以連線至「%1」網路。"
+
+#: ../contents/ui/pages/components/network/Toolbar.qml
+msgid "Enable Wi-Fi"
+msgstr "啟用 Wi-Fi"
+
+#: ../contents/ui/pages/components/network/Toolbar.qml
+msgid "Enable mobile network"
+msgstr "啟用行動網路"
+
+#: ../contents/ui/pages/components/network/Toolbar.qml
+msgctxt "@info"
+msgid "Disable airplane mode<nl/><nl/>This will enable Wi-Fi and Bluetooth"
+msgstr "停用飛航模式<nl/><nl/>這將會啟用 Wi-Fi 與藍牙"
+
+#: ../contents/ui/pages/components/network/Toolbar.qml
+msgctxt "@info"
+msgid "Enable airplane mode<nl/><nl/>This will disable Wi-Fi and Bluetooth"
+msgstr "啟用飛航模式<nl/><nl/>這將會停用 Wi-Fi 與藍牙"
+
+#: ../contents/ui/pages/components/network/Toolbar.qml
+msgid "Hotspot"
+msgstr "熱點"
+
+#: ../contents/ui/pages/components/network/Toolbar.qml
+msgid "Disable Hotspot"
+msgstr "停用熱點"
+
+#: ../contents/ui/pages/components/network/Toolbar.qml
+msgid "Create Hotspot"
+msgstr "建立熱點"
+
+#: ../contents/ui/pages/components/network/Toolbar.qml
+msgid "Configure network connections…"
+msgstr "設定網路連線…"
+
+#: ../contents/ui/pages/components/network/TrafficMonitor.qml
+msgid "/s"
+msgstr "/s"
+
+#: ../contents/ui/pages/components/network/TrafficMonitor.qml
+msgid "Upload"
+msgstr "上傳"
+
+#: ../contents/ui/pages/components/network/TrafficMonitor.qml
+msgid "Download"
+msgstr "下載"
+
+#: ../contents/ui/pages/components/volume/ListItemBase.qml
+msgid "Currently not recording"
+msgstr "目前沒有錄音"
+
+#: ../contents/ui/pages/components/volume/ListItemBase.qml
+msgid "Currently not playing"
+msgstr "目前沒有播放"
+
+#: ../contents/ui/pages/components/volume/ListItemBase.qml
+msgctxt "@action:button"
+msgid "Additional Options"
+msgstr "額外選項"
+
+#: ../contents/ui/pages/components/volume/ListItemBase.qml
+msgid "Show additional options for %1"
+msgstr "顯示 %1 的額外選項"
+
+#: ../contents/ui/pages/components/volume/ListItemBase.qml
+msgctxt "@action:button"
+msgid "Unmute"
+msgstr "取消靜音"
+
+#: ../contents/ui/pages/components/volume/ListItemBase.qml
+msgctxt "@action:button"
+msgid "Mute"
+msgstr "靜音"
+
+#: ../contents/ui/pages/components/volume/ListItemBase.qml
+msgid "Unmute %1"
+msgstr "取消靜音 %1"
+
+#: ../contents/ui/pages/components/volume/ListItemBase.qml
+msgid "Mute %1"
+msgstr "靜音 %1"
+
+#: ../contents/ui/pages/components/volume/ListItemBase.qml
+msgctxt "Accessibility data on volume slider"
+msgid "Adjust volume for %1"
+msgstr "調整 %1 的音量"
+
+#: ../contents/ui/pages/components/volume/ListItemBase.qml
+msgctxt "volume percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: ../contents/ui/pages/components/volume/ListItemBase.qml
+msgctxt "only used for sizing, should be widest possible string"
+msgid "100%"
+msgstr "100%"
+
+#: ../contents/ui/pages/components/volume/StreamListItem.qml
+msgid "Stream name not found"
+msgstr "找不到串流名稱"

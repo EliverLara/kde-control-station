@@ -17,8 +17,10 @@
 		"Description[pt_BR]": "Uma estação de controle moderna para plasma com base no incrível trabalho de Prayag2!",
 		"Description[ru]": "Современная панель управления для Plasma, основанная на замечательной работе prayag2!",
 		"Description[uk]": "Сучасна станція керування для Plasma, заснована на чудовій праці prayag2!",
+		"Description[zh_CN]": "基于 prayag2 杰作的现代化 Plasma 控制中心",
 		"Description[zh_Hans]": "基于 prayag2 杰作的现代化 Plasma 控制中心",
 		"Description[zh_Hant]": "基於 prayag2 傑作的現代化 Plasma 控制中心",
+		"Description[zh_TW]": "基於 prayag2 傑作的現代化 Plasma 控制中心",
 		"Icon": "configure-toolbars",
 		"Id": "KdeControlStation",
 		"License": "GPLv3",
@@ -31,8 +33,10 @@
 		"Name[pt_BR]": "Estação de controle KDE",
 		"Name[ru]": "Панель управления KDE",
 		"Name[uk]": "Станція керування KDE",
+		"Name[zh_CN]": "KDE 控制中心",
 		"Name[zh_Hans]": "KDE 控制中心",
 		"Name[zh_Hant]": "KDE 控制中心",
+		"Name[zh_TW]": "KDE 控制中心",
 		"ServiceTypes": [
 			"Plasma/Applet"
 		],

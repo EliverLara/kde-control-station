@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/EliverLara/kde-control-station/tree/"
 "plasma6\n"
 "POT-Creation-Date: 2026-01-22 17:26-0600\n"
-"PO-Revision-Date: 2025-09-06 11:46+0200\n"
+"PO-Revision-Date: 2026-02-25 22:22+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #: ../metadata.json
 msgid "KDE control station"
@@ -142,7 +142,7 @@ msgstr "KDE-bedieningspaneel (standaard)"
 
 #: ../contents/ui/config/configAppearance.qml
 msgid "Control Center"
-msgstr "macOS-bedieningspaneel"
+msgstr "Bedieningspaneel"
 
 #: ../contents/ui/config/configAppearance.qml
 msgid "Flat"
@@ -234,11 +234,11 @@ msgstr "Donker thema"
 
 #: ../contents/ui/config/configScreenshot.qml
 msgid "Hide widget before screenshotting:"
-msgstr ""
+msgstr "Widget verbergen alvorens een schermfoto te maken:"
 
 #: ../contents/ui/config/configScreenshot.qml
 msgid "Screenshot Command (default is 'spectacle'):"
-msgstr ""
+msgstr "Schermfotoopdracht (standaard: ‘spectacte’):"
 
 #: ../contents/ui/config/configSupport.qml
 msgid ""
@@ -771,7 +771,7 @@ msgid ""
 "Current download speed is %1 kibibytes per second; current upload speed is "
 "%2 kibibytes per second"
 msgstr ""
-"Huidige downloadsnelheid: %1 kibibytes per seconde - Huidige uploadsnelheid: "
+"Huidige downloadsnelheid: %1 kibibytes per seconde — Huidige uploadsnelheid: "
 "%2 kibibytes per seconde"
 
 #: ../contents/ui/pages/components/network/ConnectionItem.qml
@@ -1086,7 +1086,9 @@ msgid ""
 "Prolonged use of this feature will damage the device's speakers. Only use it "
 "temporarily to make quiet media audible."
 msgstr ""
+"Let op: langdurig gebruik van deze functie kan de luidsprekers beschadigen. "
+"Gebruik alléén indien strikt noodzakelijk om media verstaanbaar te maken."
 
 #: ../contents/ui/pages/VolumePage.qml
 msgid "Raise maximum volume"
-msgstr ""
+msgstr "Maximumvolume verhogen"

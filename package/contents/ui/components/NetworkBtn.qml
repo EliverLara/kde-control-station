@@ -58,7 +58,7 @@ Lib.CardButton {
     Lib.Icon {
         anchors.fill: parent
         source: network.activeConnectionIcon
-        selected: (network.networkStatus.activeConnections != "") || isAirplane 
+        selected: isWifi || isAirplane || isWired
         enableQuickAction: root.enableQuickActions
 
         onQuickActionTriggered: {

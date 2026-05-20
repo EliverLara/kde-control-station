@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls as QQC2
 
+import org.kde.bluedevil.components as BluedevilComponents
 import org.kde.bluezqt as BluezQt
 import org.kde.kirigami as Kirigami
 import org.kde.ksvg as KSvg
@@ -66,6 +67,16 @@ PageTemplate {
 
     BluetoothComponents.Header {
         id: header
+    }
+
+    readonly property alias forgetDialog: forgetDialogInstance
+
+    BluedevilComponents.ForgetDeviceDialog {
+        id: forgetDialogInstance
+        parent: bluetoothPage
+        registerCallForDeviceUbi: (call, ubi) => {
+            PlasmaBt.SharedDevicesStateProxyModel.registerDisconnectingCallForDeviceUbi(call, ubi);
+        }
     }
 
     QQC2.Action {
@@ -141,7 +152,9 @@ PageTemplate {
             highlight: PlasmaExtras.Highlight {}
             highlightMoveDuration: Kirigami.Units.shortDuration
             highlightResizeDuration: Kirigami.Units.shortDuration
-            delegate: BluetoothComponents.DeviceItem {}
+            delegate: BluetoothComponents.DeviceItem {
+                forgetDeviceDialog: bluetoothPage.forgetDialog
+            }
 
             Keys.onUpPressed: event => {
                 if (listView.currentIndex === 0) {

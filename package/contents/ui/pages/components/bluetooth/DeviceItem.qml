@@ -25,6 +25,8 @@ PlasmaExtras.ExpandableListItem {
     required property int index
     required property var model
 
+    required property var forgetDeviceDialog
+
     property list<string> currentDeviceDetails
 
     icon: model.Icon
@@ -60,6 +62,16 @@ PlasmaExtras.ExpandableListItem {
 
             onTriggered: source => {
                 PlasmaBt.LaunchApp.launchSendFile(root.model.Ubi);
+            }
+        },
+        QQC2.Action {
+            id: forgetDeviceAction
+            enabled: root.model.Paired
+            icon.name: "edit-delete-remove-symbolic"
+            text: i18nc("@action:button Forget a Bluetooth device", "Forget")
+
+            onTriggered: source => {
+                root.forgetDeviceDialog.open(root.model.Device);
             }
         }
     ]

@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.15
 import org.kde.plasma.core as PlasmaCore
 
 import org.kde.plasma.networkmanagement as PlasmaNM
+import org.kde.networkmanager as NMQt
 import org.kde.kirigami as Kirigami
 
 
@@ -23,23 +24,19 @@ Lib.CardButton {
                 && network.availableDevices.wirelessDeviceAvailable
                 && network.enabledConnections.wirelessHwEnabled
 
-    readonly property bool administrativelyWiredEnabled:
-                !PlasmaNM.Configuration.airplaneModeEnabled
-                && network.availableDevices.modemDeviceAvailable
-                && network.enabledConnections.wwanHwEnabled
-
     readonly property bool wifiCheckChecked: administrativelyEnabled && network.enabledConnections.wirelessEnabled
     readonly property bool wifiCheckVisible: network.availableDevices.wirelessDeviceAvailable
 
     readonly property bool airplaneCheckchecked: PlasmaNM.Configuration.airplaneModeEnabled
     readonly property bool airplaneCheckVisible: network.availableDevices.modemDeviceAvailable || network.availableDevices.wirelessDeviceAvailable
 
-    readonly property bool wiredCheckchecked: administrativelyWiredEnabled && network.enabledConnections.wwanEnabled
-    readonly property bool wiredCheckVisible: network.availableDevices.modemDeviceAvailable
-
     readonly property var isWifi: wifiCheckChecked && wifiCheckVisible
     readonly property var isAirplane: airplaneCheckchecked && airplaneCheckVisible
-    readonly property var isWired: wiredCheckchecked && wiredCheckVisible
+    
+    readonly property bool isConnected: {
+        const c = network.networkStatus.connectivity;
+        return c === NMQt.NetworkManager.Full || c === NMQt.NetworkManager.Limited || c === NMQt.NetworkManager.Portal;
+    }
 
     Network {
         id: network
@@ -58,7 +55,7 @@ Lib.CardButton {
     Lib.Icon {
         anchors.fill: parent
         source: network.activeConnectionIcon
-        selected: (network.networkStatus.activeConnections != "") || isAirplane 
+        selected: isWifi || isAirplane || isConnected
         enableQuickAction: root.enableQuickActions
 
         onQuickActionTriggered: {

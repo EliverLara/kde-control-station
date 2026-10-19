@@ -7,7 +7,7 @@ import org.kde.kirigami as Kirigami
 
 Card {
     id: sliderComp
-    signal moved
+    signal moved(real newValue)
     signal actionButtonClicked
 
     property bool pressed: false
@@ -43,8 +43,7 @@ Card {
     Connections {
         target: sliderLoader.item
         function onMoved() {
-            sliderComp.value = sliderLoader.item.value;
-            sliderComp.moved();
+            sliderComp.moved(sliderLoader.item.value);
         }
     }
 
@@ -113,8 +112,6 @@ Card {
                 sourceComponent: root.usePlasmaSliders ? plasmaSlider : customSlider
                 Layout.fillWidth: true
                 Layout.margins: 0
-
-                onLoaded: { sliderLoader.item.value = sliderComp.value; }
             }
 
             Component {

@@ -53,8 +53,8 @@ Item {
                 };
             });
             brightnessControl.mainScreen = screenBrightnessInfo[0];
-            sliderLoader.active = true;
         }
+        Component.onCompleted: update()
         function onDataChanged() { update(); }
         function onModelReset() { update(); }
         function onRowsInserted() { update(); }
@@ -66,7 +66,7 @@ Item {
     
     Loader {
         id: sliderLoader
-        active: false
+        active: !!brightnessControl.mainScreen && brightnessControl.mainScreen.maxBrightness > 0
         sourceComponent: sliderComponent 
         anchors.fill: parent
     }
@@ -97,8 +97,8 @@ Item {
             value: mainScreen.brightness
             stepSize: mainScreen.maxBrightness / 100
             
-            onMoved: {
-                sbControl.setBrightness(mainScreen.displayName, value) ;
+            onMoved: function(newValue) {
+                sbControl.setBrightness(mainScreen.displayName, newValue);
             }
 
             onClicked: {

@@ -36,11 +36,9 @@ Item {
     property var sink: Vol.PreferredDevice.sink
     readonly property bool sinkAvailable: sink && !(sink && sink.name == "auto_null")
 
-    onSinkChanged: sliderLoader.active = sink ? true : false
-
     Loader {
         id: sliderLoader
-        active: false
+        active: volumeControl.sinkAvailable
         sourceComponent: sliderComponent 
         anchors.fill: parent
     }
@@ -77,7 +75,9 @@ Item {
                 }
             }
             
-            onMoved: sink.volume = value * Vol.PulseAudio.NormalVolume / 100
+            onMoved: function(newValue) {
+                sink.volume = newValue * Vol.PulseAudio.NormalVolume / 100;
+            }
             
             // Display view that shows audio devices list
             onClicked: {

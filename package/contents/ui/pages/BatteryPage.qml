@@ -105,7 +105,7 @@ PageTemplate {
         remainingTime: batteryControl.remainingTime
         activeProfile: powerProfilesControl.activeProfile
         activeProfileError: powerProfilesControl.profileError
-        inhibitions: inhibitionControl.inhibitions
+        inhibitions: (inhibitionControl.requestedInhibitions ?? inhibitionControl.inhibitions ?? []).filter(inhibition => inhibition.active !== false)
         inhibitsLidAction: inhibitionControl.isLidPresent && !inhibitionControl.triggersLidAction
         profilesInstalled: powerProfilesControl.isPowerProfileDaemonInstalled
         profiles: powerProfilesControl.profiles

@@ -192,10 +192,10 @@ PlasmaComponents3.ItemDelegate {
                     model: powerManagementItem.inhibitions
 
                     InhibitionHint {
-                        property string icon: modelData.Icon
+                        property string icon: modelData.icon || modelData.Icon
                             || (KWindowSystem.isPlatformWayland ? "wayland" : "xorg")
-                        property string name: modelData.PrettyName
-                        property string reason: modelData.Reason
+                        property string name: modelData.prettyName || modelData.PrettyName
+                        property string reason: modelData.reason || modelData.Reason
 
                         Layout.fillWidth: true
                         iconSource: icon
